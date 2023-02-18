@@ -12,9 +12,9 @@ In February 2023 I graduated with an engineering degree in Automatic Control and
 
 <ul>
     {%- for post in collections.posts -%}
-        {% unless post.url == '/posts/' %}
+        {% if post.data.highlight %}
             <li><a href="{{ post.url }}">{{ post.data.title }}</a> <span style="opacity: 0.5">({{ post.data.date | readableDate }})</span></li>
-        {% endunless %}
+        {% endif %}
     {%- endfor -%}
 </ul>
 
