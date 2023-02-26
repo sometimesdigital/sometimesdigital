@@ -3,7 +3,9 @@ const pluginDate = require("eleventy-plugin-date");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    alwaysWrapLineHighlights: true,
+  });
   eleventyConfig.addPlugin(pluginDate);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addFilter("smartquotes", (post) => {
@@ -28,5 +30,9 @@ module.exports = function (eleventyConfig) {
       .replace(closeDoubles, "”")
       .replace(openSingles, "‘")
       .replace(closeSingles, "’");
+  });
+
+  eleventyConfig.setServerOptions({
+    showAllHosts: true,
   });
 };
