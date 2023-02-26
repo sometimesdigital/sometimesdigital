@@ -8,11 +8,13 @@ title: nonnullish
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="icon" type="image/x-icon" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/styles.css" />
-    <link rel="stylesheet" type="text/css" href="/prism-nord.css" />
+    <link rel="stylesheet" type="text/css" href="/prism-theme.css" />
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:ital,wght@1,400&family=Martian+Mono:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300;600&display=swap" rel="stylesheet">
     {% if title !== 'nonnullish' %}
       <title>nonnullish • {{ title }}</title>
     {% else %}
@@ -21,7 +23,11 @@ title: nonnullish
     <meta name="description" content="{{ description }}">
   </head>
   <body>
-    <div class="navbar">
+    <aside>
+    <h3>nika (@nonnullish)</h3>
+
+      <p>I like interactive interfaces (both software and hardware).</p>
+      <p>In February 2023 I graduated with an engineering degree in Automatic Control and Robotics.</p>
       <ul>
         <li>
         <a href="/">all</a>
@@ -30,17 +36,18 @@ title: nonnullish
         <a href="/posts">posts</a>
         </li>
         <li>
-        <a href="https://twitter.com/nonnullish">twitter</a>
+        <a class="twitter-link" href="https://twitter.com/nonnullish">twitter</a>
         </li>
       </ul>
-    </div>
-    {% if date %}
-      <time>{{ date | readableDate }}</time>
-    {% endif %}
-    {% if title !== 'nonnullish' %}
-      <h1><a href="{{ url }}">{{ title }}</a></h1>
-      <hr>
-    {% endif %}
-    {{ content | smartquotes | safe }}  
+    </aside>
+    <main>
+      {% if date %}
+        <time>{{ date | readableDate }}</time>
+      {% endif %}
+      {% if title !== 'nonnullish' %}
+        <h3><a href="{{ url }}">{{ title }}</a></h3>
+      {% endif %}
+      {{ content | smartquotes | safe }}  
+    </main>
   </body>
 </html>

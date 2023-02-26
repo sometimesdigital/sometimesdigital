@@ -1,5 +1,5 @@
 ---
-title: i bought a keyboard on aliexpress and the arrow keys weren’t working and the seller sent me a video showing where to solder a jumper wire and a .bin file with firmware with another video showing how to flash it
+title: I bought a keyboard on Aliexpress and the arrow keys weren’t working and the seller sent me a video showing where to solder a jumper wire and a .bin file with firmware with another video showing how to flash it
 date: 2023-02-11
 highlight: true
 ---
@@ -17,14 +17,14 @@ The second video showed flashing the firmware (the `.bin` file) onto the keyboar
 
 I thought I would start with the jumper wire, and hoped that would maybe solve the problem in some part. In retrospect I should have paid more attention to the circuit: the only change that this modification brought was that the letter "b" was pressed all the time, which makes sense, because that was the key that was shorted. I don't know why they did that. I did not know how to upload the firmware at that point, so I messaged the seller again and told them about the jumper wire fiasco. The next morning I got a reply: _"You don't need to disassemble and solder, you can use the software directly"_. I removed the jumper wire and asked about the Android app, but it seemed like the person I was talking to did not have the access to it, so I was kind of losing hope.
 
-### computer, enhance
+### Computer, Enhance
 
 I reverse-searched the app logo with Google Images, which turned out to be the logo of HunterSun, 汉天下, which at some point has changed its name to OnMicro. They seem to mostly make Nordic Semiconductor nRF5x clones, which seem to be used in a lot of Aliexpress gadgets - most commonly smartwatches. This made sense, because the chip on the PCB was labeled as HS6620, which is one of their products. I looked into the binary file also, but sadly I do not have the gift of seeing patterns in hexadecimal code. The only things I noticed were some text strings, like "onMicro.GK061_STD_V1.1.18" and paths mentioning the HS6620 chip. I Googled everything I could, but there was nothing. Occasionally I would find traces of other people in similar situations, like [this person, trying to reverse engineer a HS6620 based smartwatch](https://github.com/rbaron/HS6620D-smartwatch-reveng).
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Nordic Semiconductor&#39;s nRF52? PLEASE. way too mainstream. They sold out in the late 90s. <br><br>I&#39;m into the HS6621CM from HunterSun. They&#39;re an indie fab, you may know of them as OnMicro? No? <br>I thought not.</p>&mdash; foone🏳️‍⚧️ (@Foone) <a href="https://twitter.com/Foone/status/1534545540339204096">June 8, 2022</a></blockquote>
 
 
-### when in rome...
+### When in Rome...
 
 At some point I came across one Google search result that was kind of odd.
 
@@ -32,7 +32,7 @@ At some point I came across one Google search result that was kind of odd.
 
 "汉天下" is the Chinese name of HunterSun, and "升级工具" means "upgrade tools". Branches? Java? It seemed like a repository, but after clicking the link, the website only showed Chinese adverts for gambling. I started suspecting that Google was not showing me something, and Googled the Chinese equivalent of Google, which turns out to be called Baidu. I had to turn off my VPN to access it, but it was worth it, because I quickly found [the repository by Zhang Guangyao called HSTools on the Chinese equivalent of GitHub called Gitee](https://gitee.com/zhangguangyao/HSTools/tree/master). To download a repository from Gitee you need to have an account, which I tried to avoid by using bugmenot.com, but the only login there had the username "winnie_the_poor", and I don't want to go to a Chinese jail, so I did end up making an account.
 
-### motherlode
+### Motherlode
 
 The repository contained a pre-built `.apk` , which I put on a Xiaomi phone that I only use for situations like this. I loaded the `.bin` file, and it found the keyboard, but repetitively crashed during upload. It also looked a bit different than the app that was shown in the video sent by the seller, which means that there probably exists an updated version of this app somewhere in the world. I sent the repository owner a question about this, via a Gitee DM, but they haven't replied.
 
@@ -81,7 +81,7 @@ try {
 
 I fully expected the keyboard to get bricked, but... it actually worked. The firmware was flashed correctly and the arrow keys can now be accessed with the function key as expected.
 
-### well there's your problem
+### Well, There's Your Problem
 
 So what went wrong? One person on Twitter got it almost right.
 

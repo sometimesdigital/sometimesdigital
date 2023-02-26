@@ -1,14 +1,7 @@
 ---
-title: my browser tab drawer
+title: My Browser Tab Drawer
 date: 2023-02-18
 ---
-
-<style>
-    body > ul li {
-        font-family: 'Lora', serif;
-        line-height: 2
-    }
-</style>
 
 This list is a form of a digital desk drawer into which I plan to periodically shove all my open browser tabs that I don’t know what to do with.
 
