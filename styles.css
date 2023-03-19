@@ -196,6 +196,13 @@ code .highlight-line:before {
     box-sizing: border-box;
 }
 
+.demo {
+    width: 100%;
+    border-radius: 3px;
+    aspect-ratio: 1.55;
+    object-fit: cover;
+}
+
 ul {
     list-style: circle;
     padding-left: 18px;
