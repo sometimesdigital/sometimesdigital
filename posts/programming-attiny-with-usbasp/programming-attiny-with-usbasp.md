@@ -4,7 +4,7 @@ date: 2022-03-15
 ---
 
 #### USBASP drivers
-On Linux and MacOS this step should not be necessery. On Windows, install Zadig and install the **libusbK (v3.1.0.0)** driver (libusb-win32 (v1.2.6.0) did not work for me).
+On Linux and MacOS this step should not be necessary. On Windows, install Zadig and install the **libusbK (v3.1.0.0)** driver (libusb-win32 (v1.2.6.0) did not work for me).
 
 #### Connections
 1. Enable the slow mode with a jumper (JP3).
