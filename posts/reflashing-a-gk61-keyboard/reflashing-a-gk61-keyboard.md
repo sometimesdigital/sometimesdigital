@@ -1,5 +1,6 @@
 ---
 title: I bought a keyboard on Aliexpress and the arrow keys weren’t working and the seller sent me a video showing where to solder a jumper wire and a .bin file with firmware with another video showing how to flash it
+description: Taking the right to repair to the next level...
 date: 2023-02-11
 highlight: true
 ---

@@ -1,5 +1,6 @@
 ---
 title: Customizing Windows 11
+description: My list of tools, plugins, and programs for making Windows 11 better
 date: 2022-12-11
 ---
 

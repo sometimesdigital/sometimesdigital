@@ -1,5 +1,6 @@
 ---
 title: It’s always a good day when a coworker sends you an article in which the header picture is a photo of a sad clown (Saving a File in 2023)
+description: Guide on how to (and how not to) save a file programmatically with JavaScript
 date: 2023-05-17
 ---
 It’s always a good day when a coworker sends you [an article in which the header picture is a photo of a sad clown](https://medium.com/@drevets/you-cant-prompt-a-file-download-with-the-content-disposition-header-using-axios-xhr-sorry-56577aa706d6).
