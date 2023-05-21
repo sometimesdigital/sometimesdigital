@@ -15,7 +15,14 @@ layout: default.njk
 ### projects
 
 <div class="projects">
-<div class="item">
+    <div class="item">
+        <img src="/rss-notifications.gif" class="demo"/>
+        <p class="date">May 2023</p>
+        <a href="https://github.com/tusindfryd/rss-notifications" class="title">RSS Notifications</a>
+        <p class="description">Lightweight system tray application that sends notifications about updates in saved RSS and Atom feeds.
+        <a href="https://github.com/tusindfryd/rss-notifications">→</a></p>
+    </div>
+    <div class="item">
         <img src="/todo.gif" class="demo"/>
         <p class="date">Dec 2021</p>
         <a href="https://github.com/tusindfryd/todo" class="title">todo </a>
