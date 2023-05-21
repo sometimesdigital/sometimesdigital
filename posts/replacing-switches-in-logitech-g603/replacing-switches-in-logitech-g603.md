@@ -1,5 +1,6 @@
 ---
 title: Replacing switches in Logitech G603 mouse
+description: Guide on how to replace switches / buttons, and the scroll wheel in the Logitech G603 mouse
 date: 2023-05-18
 highlight: true
 ---
@@ -12,10 +13,10 @@ I replaced faulty switches in my boyfriend's Logitech G603 mouse and I thought I
 
 <div style="display: flex; gap: 10px;">
     <div>
-        <img src="top.PNG">
+        <img src="top.PNG" alt="Top part of the Logitech G603 mouse">
     </div>
     <div>
-        <img  src="bottom.PNG">
+        <img  src="bottom.PNG" alt="Bottom part of the Logitech G603 mouse">
     </div>
 </div>
 
@@ -27,10 +28,10 @@ In the photo you can kind of see the damage on the old encoder (the left one, wi
 
 <div style="display: flex; gap: 1em;">
     <div>
-        <img src="encoders.PNG">
+        <img src="encoders.PNG" alt="Scroll wheel modules for the Logitech G603 mouse - old and new">
     </div>
     <div>
-        <img  src="new-encoder.PNG">
+        <img  src="new-encoder.PNG" alt="Mouse with a replaced scroll wheel module">
     </div>
 </div>
 
@@ -40,10 +41,10 @@ The left and right switches are covered by a plastic part from the top. Undernea
 
 <div style="display: flex; gap: 1em;">
     <div>
-        <img src="left-switch-top.PNG">
+        <img src="left-switch-top.PNG" alt="Top view of the left button in the Logitech G603 mouse">
     </div>
     <div>
-        <img  src="left-switch.PNG">
+        <img  src="left-switch.PNG" alt="Disassembled left button in the Logitech G603 mouse">
     </div>
 </div>
 

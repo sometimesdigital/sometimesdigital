@@ -1,5 +1,6 @@
 ---
 title: My Browser Tab Drawer
+description: This list is a form of a digital desk drawer into which I plan to periodically shove all my open browser tabs that I don’t know what to do with.
 date: 2023-02-18
 ---
 
