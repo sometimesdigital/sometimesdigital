@@ -200,7 +200,7 @@ code .highlight-line:before {
 .demo {
     width: 100%;
     border-radius: 3px;
-    aspect-ratio: 1.55;
+    aspect-ratio: 1.7;
     object-fit: cover;
 }
 
