@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hat Tile Puzzle</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,200,0,200"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAALiMAAC4jAXilP3YAAAKYSURBVFhH7ZbPa9NgGMffJ8mscwy0UkhxDA9Tt4NsuJuIin+ACDoHapXi2o6NCh50eJA6cUzFoUMU67DSRhCnB0+e/AXeRA8KXtTTaLsUVj1MXduteX3aPs5qmqR2zUX6gfD2+32TvN+8P8v+KzjjMHPyQTPJqhCoXDGq797W2YDyrOl7TiGrKoDKmokPR9eLS8IF/HofMBA5dgS+dI877HlJt5hSc4AXu0JSZ9emIaZp5xjAOrKLcM7eub86euHhwTxZhtQ0BHFfbHvnlo732NLk340XAGDdKWd2L0lTagogCmw/9l0XSR3YA6q42PqUpCl1m4TlAMAZV2TfPElT7AjwRpYPx+i3JfUPANoojIJGypL6B+BCRPUpA6FQqKp32zEELi6wqUG1423CH91BniF2BPhFjwDCq1l/bBqDtJOnw3Ij4n3TourIrCZZhLewcdz1giSt4XwBW7qymHaMtz/qXyC3iGUPqM7MLdYC38qvf2q8AAAeUHBWdGZ6yVnGNEDCp2zDvf04SVswDFA4WgWBXcWvXfGBZYZhAHVQ6cdiZ0nZR8UAMwcmmrEDLpG0lYoBJKfrNBaGS6ee6ALMDShtOOgjJG1HFyAn8MulZVMZzvkSTtA4SWM4S+C9r8svCUB3QupmeDKgRND0kvwDPOef4xNBN//xKcnWDAvAQmivLdX+phASJKnHffPQB7IM0QVIDd2V83npI1a0klVo+LPA+Cn59tHHZBVJeu+4+Kqm88CZH/8DLPcmLt3rcvjICZKm6AIUwP17BIfhIm5C88D5mJzNT0LUm6FqHalArDvP2TUMsRvjfslLfHPbjWNpqjalYgAt+MSRyqXHshqb2DjlmSXbEgzepwFIG8Ke+2Q1aNDAAsZ+AtkO0TFunSACAAAAAElFTkSuQmCC"
+    />
+    <style>
+      * {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      body {
+        touch-action: none;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+          sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      span.material-symbols-outlined {
+        vertical-align: middle;
+        margin-bottom: 1px;
+        aspect-ratio: 1/1;
+      }
+
+      b {
+        font-weight: 500;
+      }
+
+      a {
+        color: inherit;
+        font-weight: 500;
+      }
+
+      #wrapper {
+        max-height: min(750px, calc(100vh - 50px));
+        max-width: min(750px, calc(100vw - 50px));
+        aspect-ratio: 1/1;
+        overflow: hidden;
+        border: 28px solid white;
+        box-sizing: border-box;
+      }
+
+      .help {
+        width: 40px;
+        height: 40px;
+        font-size: 40px;
+        cursor: pointer;
+      }
+
+      .tooltip span.material-symbols-outlined {
+        max-height: 24px;
+      }
+
+      #instruction {
+        position: fixed;
+        right: 32px;
+        bottom: 16px;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+      }
+
+      .tooltip {
+        opacity: 0;
+        height: auto;
+        width: auto;
+        max-width: 0;
+        max-height: 0;
+        position: relative;
+        color: white;
+        padding: 6px 8px;
+        text-align: start;
+        text-decoration: none;
+        word-wrap: break-word;
+        background-color: #262626;
+        border-radius: 6px;
+        box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+          0 9px 28px 8px rgba(0, 0, 0, 0.05);
+        box-sizing: border-box;
+        bottom: 16px;
+        right: -13px;
+      }
+
+      .tooltip:before {
+        --size: 16px;
+        content: "";
+        position: absolute;
+        width: var(--size);
+        height: var(--size);
+        background-color: #262626;
+        bottom: 0;
+        transform: rotate(45deg) translateY(calc(1.414 * var(--size) / 2 - 1px));
+        border-radius: 0 0 5px 0;
+        right: 20px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+
+      @media (hover: hover) {
+        .mobile {
+          display: none;
+        }
+      }
+
+      @media (hover: none) {
+        .desktop {
+          display: none;
+        }
+      }
+
+      #tiles {
+        margin-left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        margin-top: 50%;
+      }
+
+      .hat {
+        transform-origin: unset;
+        cursor: grab;
+      }
+
+      .movable {
+        cursor: grabbing;
+      }
+
+      p {
+        margin: 0;
+      }
+    </style>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.6.1/randomColor.min.js"
+      integrity="sha512-vPeZ7JCboHcfpqSx5ZD+/jpEhS4JpXxfz9orSvAPPj0EKUVShU2tgy7XkU+oujBJKnWmu4hU7r9MMQNWPfXsYw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <svg id="tiles" width="800" height="800"></svg>
+    </div>
+
+    <div id="instruction">
+      <span class="material-symbols-outlined help" onclick="toggleTooltip();"> help </span>
+      <div class="tooltip">
+        <p>Made by Nika (<a href="https://twitter.com/nonnullish">@nonnullish</a>)</p>
+        <p>
+          Based on dr Thomas Blum's <a href="http://www1.lasalle.edu/~blum/c343wks/Hat_Tile_2.html">page</a> and
+          <a href="https://www.youtube.com/watch?v=uoJFqLn-1eY">video</a>
+        </p>
+        <p>
+          More about the hat:
+          <a href="https://www.sciencenews.org/article/mathematicians-discovered-einstein-tile">Science News article</a>
+        </p>
+
+        <br />
+
+        <div class="desktop">
+          <p>
+            <span class="material-symbols-outlined"> right_click </span> <b>Select & unselect</b>: left-click on a tile
+          </p>
+          <p><span class="material-symbols-outlined"> drag_pan </span> <b>Move</b>: hover</p>
+          <p><span class="material-symbols-outlined"> rotate_90_degrees_cw </span> <b>Rotate</b>: scroll</p>
+          <p><span class="material-symbols-outlined"> flip </span> <b>Flip</b>: middle-click</p>
+          <p><span class="material-symbols-outlined"> add_circle </span> <b>Add a new tile</b>: right-click</p>
+        </div>
+        <div class="mobile">
+          <p><span class="material-symbols-outlined"> right_click </span> <b>Select & unselect</b>: tap on a tile</p>
+          <p><span class="material-symbols-outlined"> drag_pan </span> <b>Move</b>: drag</p>
+          <p>
+            <span class="material-symbols-outlined"> rotate_90_degrees_cw </span> <b>Rotate</b>: touch with two fingers
+          </p>
+          <p><span class="material-symbols-outlined"> flip </span> <b>Flip</b>: touch with three fingers</p>
+          <p>
+            <span class="material-symbols-outlined"> add_circle </span> <b>Add a new tile</b>: touch with four fingers
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const SVG = document.querySelector("#tiles");
+      const WIDTH = 800;
+      const HEIGHT = 800;
+      const SIDE = 32;
+      const svgns = "http://www.w3.org/2000/svg";
+      const cos30 = Math.cos(Math.PI / 6); // sqrt(3/2)
+      const tan30 = Math.tan(Math.PI / 6); // 1/sqrt(3)
+      const sqrt3 = Math.sqrt(3);
+      const backgroundColor = randomColor({ luminosity: "light" });
+
+      document.body.style.background = backgroundColor;
+      document.body.style.color = randomColor({
+        hue: backgroundColor,
+        luminosity: "dark",
+      });
+
+      let gridPoints = [];
+
+      const drawKites = () => {
+        // adapted from http://stackoverflow.com/questions/12786797/how-to-draw-rectangles-dynamically-in-svg
+
+        for (let i = -8; i <= 8; i++) {
+          for (let j = -8; j <= 8; j++) {
+            const x = WIDTH / 2 + i * SIDE * sqrt3;
+            const y = HEIGHT / 2 + (2 * j + i) * SIDE;
+
+            if (x < 0 || x > WIDTH || y < 0 || y > HEIGHT) {
+              continue;
+            }
+
+            const kitePoints = [
+              [x, y],
+              [x + (SIDE * sqrt3) / 2, y + SIDE / 2],
+              [x + (SIDE * 2) / sqrt3, y],
+              [x + (SIDE * sqrt3) / 2, y - SIDE / 2],
+            ];
+
+            gridPoints.push(...kitePoints.map(([x, y]) => [Math.round(x), Math.round(y)]));
+
+            const kitePath = kitePoints.map((pair) => pair.join(",")).join(" ");
+
+            for (let theta = 0; theta < 360; theta += 60) {
+              const rotation = `rotate(${theta}, ${x}, ${y})`;
+              const kite = document.createElementNS(svgns, "polygon");
+              kite.setAttribute(
+                "fill",
+                randomColor({
+                  luminosity: "light",
+                  hue: "green",
+                  format: "rgba",
+                  alpha: 0.5,
+                })
+              );
+              kite.setAttribute("stroke", "white");
+              kite.setAttribute("points", kitePath);
+              kite.setAttribute("transform", rotation);
+              kite.setAttribute("class", "kite");
+              SVG.appendChild(kite);
+            }
+          }
+        }
+      };
+
+      const drawHat = () => {
+        const x = WIDTH / 2;
+        const y = HEIGHT / 2;
+
+        hatPoints = `${x},${y} `;
+        hatPoints += ` ${x + (SIDE * sqrt3) / 2},${y + SIDE / 2}`;
+        hatPoints += ` ${x + (SIDE * 2) / sqrt3},${y}`;
+        hatPoints += ` ${x + SIDE * sqrt3},${y}`;
+        hatPoints += ` ${x + SIDE * sqrt3},${y - SIDE}`;
+        hatPoints += ` ${x + (SIDE * sqrt3) / 2},${y - (3 / 2) * SIDE}`;
+        hatPoints += ` ${x + (SIDE * 2) / sqrt3},${y - 2 * SIDE}`;
+        hatPoints += ` ${x + (SIDE * sqrt3) / 2},${y - (5 / 2) * SIDE}`;
+        hatPoints += ` ${x},${y - 2 * SIDE}`;
+        hatPoints += ` ${x},${y - SIDE}`;
+        hatPoints += ` ${x - SIDE / sqrt3},${y - SIDE}`;
+        hatPoints += ` ${x - (SIDE * 2) / sqrt3},${y}`;
+        hatPoints += ` ${x - (SIDE * sqrt3) / 2},${y + SIDE / 2}`;
+
+        const hat = document.createElementNS(svgns, "polygon");
+        hat.setAttribute(
+          "fill",
+          randomColor({
+            hue: backgroundColor,
+            luminosity: "dark",
+          })
+        );
+
+        hat.setAttribute("fill-opacity", "0.65");
+        hat.setAttribute("stroke", "white");
+        hat.setAttribute("points", hatPoints);
+        hat.setAttribute("class", "hat");
+
+        SVG.appendChild(hat);
+      };
+
+      const makeMovable = (target) => {
+        target.classList.add("movable");
+        target.setAttribute("fill-opacity", "0.75");
+      };
+
+      const makeStatic = (target) => {
+        target.classList.remove("movable");
+        target.setAttribute("fill-opacity", "0.65");
+      };
+
+      SVG.addEventListener("click", ({ target, offsetX, offsetY }) => {
+        const movable = document.querySelector(".movable");
+        if (!movable && target.classList.contains("hat")) {
+          makeMovable(target);
+        } else if (movable) {
+          makeStatic(movable);
+        }
+      });
+
+      const handleRotate = (delta) => {
+        const hat = document.querySelector(".movable");
+        if (hat) {
+          const currentAngle = /\d+/.test(hat.style.rotate) ? Number(hat.style.rotate.match(/\d+/)[0]) : 0;
+          const newAngle = delta > 0 ? (360 + currentAngle + 60) % 360 : (360 + currentAngle - 60) % 360;
+          hat.style.rotate = `${newAngle}deg`;
+        }
+      };
+
+      SVG.addEventListener("wheel", (event) => {
+        event.preventDefault();
+        handleRotate(event.deltaY);
+      });
+
+      const handleFlip = () => {
+        const hat = document.querySelector(".movable");
+        if (hat) {
+          hat.style.transform = hat.style.transform === "scaleX(-1)" ? "none" : "scaleX(-1)";
+        }
+      };
+
+      document.addEventListener("auxclick", (event) => {
+        if (event.button === 1) {
+          event.preventDefault();
+          handleFlip();
+        }
+      });
+
+      document.addEventListener("keyup", (event) => {
+        if (event.code === "Space") {
+          event.preventDefault();
+          handleFlip();
+        }
+      });
+
+      document.addEventListener("touchstart", ({ touches }) => {
+        if (touches.length === 1) {
+          const movable = document.querySelector(".movable");
+
+          if (!movable && touches[0].target.classList.contains("hat")) {
+            makeMovable(target);
+          }
+
+          return;
+        }
+        if (touches.length === 2) {
+          handleRotate(1);
+          return;
+        }
+        if (touches.length === 3) {
+          handleFlip();
+          return;
+        }
+        if (touches.length === 4) {
+          drawHat();
+          return;
+        }
+      });
+
+      const handleMove = (offsetX, offsetY) => {
+        const { left, top } = SVG.getBoundingClientRect();
+        const hat = document.querySelector(".movable");
+        if (hat) {
+          const distance = ([x, y]) => {
+            return Math.sqrt(Math.pow(offsetX - x, 2) + Math.pow(offsetY - y, 2));
+          };
+
+          const [x, y] = gridPoints.reduce((a, b) => (distance(a) < distance(b) ? a : b));
+
+          hat.style.translate = `${Math.ceil(x - WIDTH / 2)}px ${Math.ceil(y - HEIGHT / 2)}px`;
+        }
+      };
+
+      SVG.addEventListener("mousemove", ({ offsetX, offsetY }) => {
+        handleMove(offsetX, offsetY);
+      });
+
+      SVG.addEventListener("touchmove", (event) => {
+        const { left, top } = SVG.getBoundingClientRect();
+        const touch = event.touches[0];
+        const offsetX = touch.clientX - left;
+        const offsetY = touch.clientY - top;
+        handleMove(offsetX, offsetY);
+      });
+
+      SVG.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+        if (!document.querySelector(".movable")) {
+          drawHat();
+        }
+      });
+
+      const toggleTooltip = () => {
+        const tooltip = document.querySelector(".tooltip");
+        let opacity = Number(tooltip.style.opacity);
+        if (opacity) {
+          tooltip.style.transition = "opacity 0.5s 0s, max-height 0s 0.5s, max-width 0s 0.5s, padding 0s 0.5s";
+          tooltip.style.padding = 0;
+          tooltip.style.opacity = 0;
+          tooltip.style.maxWidth = 0;
+          tooltip.style.maxHeight = 0;
+        } else {
+          tooltip.style.transition = "opacity 0.5s 0s, max-height 0s 0s, max-width 0s 0s, padding 0s 0s";
+          tooltip.style.padding = "6px 8px";
+          tooltip.style.opacity = 1;
+          tooltip.style.maxWidth = "100vw";
+          tooltip.style.maxHeight = "100vh";
+        }
+      };
+
+      drawKites();
+      drawHat();
+    </script>
+  </body>
+</html>

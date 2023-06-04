@@ -15,6 +15,13 @@ description: nika (@nonnullish) - personal website
 
 <div class="projects">
     <div class="item">
+        <img src="/cool-hat.gif" class="demo" alt="Demo of the Hat Tile Puzzle app"/>
+        <p class="date">June 2023</p>
+        <a href="https://nonnullish.pages.dev/pages/hat-tile-puzzle" class="title">Hat Tile Puzzle</a>
+        <p class="description">Interactive page for playing with <a href="https://www.sciencenews.org/article/mathematicians-discovered-einstein-tile">the hat</a>, a 13-sided polykite shape whose pattern is an aperiodic monotile. 
+        <a href="https://nonnullish.pages.dev/pages/hat-tile-puzzle">→</a></p>
+    </div>
+    <div class="item">
         <img src="/rss-notifications.gif" class="demo" alt="Demo of the RSS Notifications app"/>
         <p class="date">May 2023</p>
         <a href="https://github.com/tusindfryd/rss-notifications" class="title">RSS Notifications</a>
