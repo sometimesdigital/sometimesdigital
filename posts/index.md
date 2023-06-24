@@ -1,5 +1,6 @@
 ---
 title: posts
+layout: default.njk
 ---
 (writing things down so that I won’t forget them later)
 <ul>
