@@ -88,6 +88,11 @@ aside ul {
 
 a {
     color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline!important;
 }
 
 pre,
@@ -225,6 +230,10 @@ hr {
     height: 1px;
     border: 0;
     outline: 0;
+}
+
+h3 {
+    font-weight: 600;
 }
 
 .projects .description a,
