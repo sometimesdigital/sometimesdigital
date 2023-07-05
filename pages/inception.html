@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>∞</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+
+    <style>
+        @keyframes zoom {
+            from {
+                width: 75%;
+                box-shadow: rgba(0, 0, 0, 0.15) 0px 18px 50px -10px;
+            }
+
+            to {
+                width: 100%;
+                box-shadow: rgba(0, 0, 0, 0) 0px 18px 50px -10px;
+            }
+        }
+
+        @keyframes fadeOut {
+            to {
+                background-color: #fafafa;
+            }
+        }
+
+        @keyframes borderFadeOut {
+            to {
+                border-bottom: 1px solid #fafafa;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            max-height: -webkit-fill-available;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fafafa;
+            user-select: none;
+        }
+
+        .browser {
+            width: 75%;
+            aspect-ratio: 8/5;
+            border-radius: 8px;
+            animation: zoom 2.5s linear infinite;
+            position: relative;
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 18px 50px -10px;
+        }
+
+        .browser .browser,
+        .browser .browser .top-bar,
+        .browser .browser .circle,
+        .browser .browser .bar {
+            animation: none;
+        }
+
+        .top-bar {
+            left: 0;
+            top: 0;
+            border-radius: 8px 8px 0 0;
+            padding: 0 1%;
+            height: 5%;
+            width: -webkit-fill-available;
+            background-color: #e9e9e9;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1%;
+            position: absolute;
+            border-bottom: 1px solid #dbdcdd;
+            animation: fadeOut 2.5s linear infinite, borderFadeOut 2.5s linear infinite;
+        }
+
+        .circle {
+            width: auto;
+            height: 40%;
+            aspect-ratio: 1/1;
+            border-radius: 100%;
+            animation: fadeOut 2.5s linear infinite;
+        }
+
+        .red {
+            background-color: #e94158;
+        }
+
+        .yellow {
+            background-color: #f2b11a;
+        }
+
+        .green {
+            background-color: #26ab7e;
+        }
+
+        .bar {
+            background-color: #ffffff;
+            width: 100%;
+            height: 40%;
+            border-radius: 100vw;
+            animation: fadeOut 2.5s linear infinite;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            border-radius: 6px;
+            width: 100%;
+            background-color: #fafafa;
+        }
+
+        h1 {
+            font-size: min(6rem, 7vw);
+            font-weight: normal;
+            font-style: italic;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: min(2rem, 4vw);
+            font-weight: normal;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            border-bottom: 2px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="browser">
+        <div class="top-bar">
+            <div class="red circle"></div>
+            <div class="yellow circle"></div>
+            <div class="green circle"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="content">
+            <div class="browser">
+                <div class="top-bar">
+                    <div class="red circle"></div>
+                    <div class="yellow circle"></div>
+                    <div class="green circle"></div>
+                    <div class="bar"></div>
+                </div>
+                <div class="content">
+                    <div class="browser">
+                        <div class="top-bar">
+                            <div class="red circle"></div>
+                            <div class="yellow circle"></div>
+                            <div class="green circle"></div>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="content">
+                            <div class="browser">
+                                <div class="top-bar">
+                                    <div class="red circle"></div>
+                                    <div class="yellow circle"></div>
+                                    <div class="green circle"></div>
+                                    <div class="bar"></div>
+                                </div>
+                                <div class="content">
+                                    <div class="browser">
+                                        <div class="top-bar">
+                                            <div class="red circle"></div>
+                                            <div class="yellow circle"></div>
+                                            <div class="green circle"></div>
+                                            <div class="bar"></div>
+                                        </div>
+                                        <div class="content">
+                                            <div class="browser">
+                                                <div class="top-bar">
+                                                    <div class="red circle"></div>
+                                                    <div class="yellow circle"></div>
+                                                    <div class="green circle"></div>
+                                                    <div class="bar"></div>
+                                                </div>
+                                                <div class="content">
+                                                    <div class="browser">
+                                                        <div class="top-bar">
+                                                            <div class="red circle"></div>
+                                                            <div class="yellow circle"></div>
+                                                            <div class="green circle"></div>
+                                                            <div class="bar"></div>
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="browser">
+                                                                <div class="top-bar">
+                                                                    <div class="red circle"></div>
+                                                                    <div class="yellow circle"></div>
+                                                                    <div class="green circle"></div>
+                                                                    <div class="bar"></div>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <div class="browser">
+                                                                        <div class="top-bar">
+                                                                            <div class="red circle"></div>
+                                                                            <div class="yellow circle"></div>
+                                                                            <div class="green circle"></div>
+                                                                            <div class="bar"></div>
+                                                                        </div>
+                                                                        <div class="content">
+                                                                            <div class="browser">
+                                                                                <div class="top-bar">
+                                                                                    <div class="red circle"></div>
+                                                                                    <div class="yellow circle"></div>
+                                                                                    <div class="green circle"></div>
+                                                                                    <div class="bar"></div>
+                                                                                </div>
+                                                                                <div class="content">
+                                                                                    <div class="browser">
+                                                                                        <div class="top-bar">
+                                                                                            <div class="red circle">
+                                                                                            </div>
+                                                                                            <div class="yellow circle">
+                                                                                            </div>
+                                                                                            <div class="green circle">
+                                                                                            </div>
+                                                                                            <div class="bar"></div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+
+</html>
