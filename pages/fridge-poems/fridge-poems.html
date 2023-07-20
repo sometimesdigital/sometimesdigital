@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fridge Poems</title>
+  <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+  <link rel="icon" type="image/x-icon" href="icon.png">
+
+  <style>
+    @font-face {
+      font-family: Heuristica;
+      src: url("heuristica.otf") format("opentype");
+    }
+
+    * {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    :root {
+      --font: 'Heuristica', serif;
+      --font-size: 0.5rem;
+      --zoom: 1;
+    }
+
+    body {
+      width: 100dvw;
+      height: 100dvh;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      transform: scale(var(--zoom));
+    }
+
+    .container {
+      width: 100dvw;
+      height: 100dvh;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-image: url("fridge.jpg");
+      background-position: 70% 50%;
+      cursor: none !important;
+    }
+
+    .container:before {
+      content: '';
+      position: absolute;
+      width: 100dvw;
+      height: 100dvh;
+      background: radial-gradient(circle at 1.98% 52.96%, #757F9A, transparent 100%), radial-gradient(circle at 98.02% 72.01%, #D7DDE8, transparent 100%), radial-gradient(circle at 50% 50%, #d1b1b0, #d1b1b0 100%);
+      display: block;
+      mix-blend-mode: hard-light;
+      opacity: 0.5;
+    }
+
+    .container:after {
+      content: '';
+      position: absolute;
+      mix-blend-mode: soft-light;
+      width: 100dvw;
+      height: 100dvh;
+      background-image: radial-gradient(rgb(223 218 188) 30%, transparent 70%), radial-gradient(rgb(255 255 255 / 76%) 30%, transparent 70%), radial-gradient(rgb(0, 0, 0) 30%, transparent 70%), radial-gradient(rgb(0, 0, 0) 30%, transparent 70%);
+      background-position: 0px 0px, 104px 104px, -10.4px 10.4px, 93.6px 114.4px;
+      background-size: 208px 208px;
+      background-color: rgb(233 230 159);
+      opacity: 0.5;
+      z-index: -1;
+      filter: blur(20px);
+    }
+
+    .item {
+      font-family: var(--font);
+      font-size: var(--font-size);
+      position: absolute;
+      padding: 7px 7px 6px;
+      background: #f0f0f0;
+      border-radius: 1.5px;
+      border: 0.25px solid #222;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      mix-blend-mode: luminosity;
+      cursor: none !important;
+    }
+
+    .hand {
+      position: absolute;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .hand img {
+      height: 128px;
+      width: auto;
+    }
+
+    .button {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      cursor: none;
+      appearance: none;
+      outline: none;
+      background-color: #ffffff;
+      border: 1px solid #222222;
+      border-radius: 2px;
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container"></div>
+  <button class="button" onclick="getWords()">↻</button>
+  <div class="hand"><img src="hand.png" /></div>
+
+  <script>
+    const container = document.querySelector('.container');
+
+    const panzoom = Panzoom(container, {
+      maxScale: 5,
+      disablePan: true,
+      contain: 'outside',
+      handleStartEvent: () => { }
+    })
+
+    container.addEventListener('wheel', panzoom.zoomWithWheel);
+    container.addEventListener('wheel', () => {
+      const { width, height } = container.getBoundingClientRect();
+      const scale = container.offsetWidth / width;
+      document.querySelector('.hand img').style.height = `${128 / scale}px`;
+    });
+
+    interact('.item').draggable({
+      listeners: {
+        move(event) {
+          const container = document.querySelector('.container');
+          const { width, height } = container.getBoundingClientRect();
+          const scale = container.offsetWidth / width;
+          const [x, y] = [...event.target.style.translate.matchAll(/\d+/g)].map(match => Number(match[0]));
+          event.target.style.translate = `${x + Math.round(event.dx * scale)}px ${y + Math.round(event.dy * scale)}px`;
+          event.target.style.rotate = '0deg';
+        },
+      }
+    })
+
+    const getWords = async () => {
+      document.querySelectorAll('.item').forEach(item => container.removeChild(item));
+
+      const response = await fetch('https://random-word-api.herokuapp.com/word?number=50');
+      const words = await response.json();
+
+      words.forEach(word => {
+        const element = document.createElement('div');
+        element.className = 'item';
+        element.innerText = word;
+        const [w, h] = [window.innerWidth, window.innerHeight];
+        const [dx, dy] = w > h ? [0.33, 0.66] : [0.66, 0.33];
+        const [x, y] = [w - Math.round(Math.random() * (w * dx)) - Math.round(0.25 * w), h - Math.floor(Math.random() * (h * dy)) - 60]
+        element.style.rotate = `${Math.floor(Math.random() * 52) - 26}deg`
+        element.style.translate = `${x}px ${y}px`;
+        element.style.color = word;
+        document.querySelector('.container').appendChild(element);
+      });
+    }
+
+    getWords();
+
+    window.addEventListener('mousemove', ({ clientX, clientY }) => {
+      document.querySelector('.hand').style.top = `${clientY}px`;
+      document.querySelector('.hand').style.left = `${clientX}px`;
+    });
+
+  </script>
+</body>
+
+</html>
