@@ -9,6 +9,7 @@ but I work as a front-end developer, mostly with React & TypeScript <3
 ---
 
 favorite projects (js):
+ - **[fridge poems](https://nonnullish.pages.dev/pages/fridge-poems/)**
  - **[hat tile puzzle](https://nonnullish.pages.dev/pages/hat-tile-puzzle/)**
  - **[screenduino](https://nonnullish.github.io/screenduino/)**: custom glyph generator for LCD screens
  - **[rss notifications in system tray](https://github.com/nonnullish/rss-notifications)**
@@ -26,4 +27,4 @@ some other of the projects i made while @ uni:
 
 ---
 
-**if you have a question about a post or a project feel free to contact me on twitter [@nonnullish](https://twitter.com/nonnullish)** :)
+**if you have a question about a post or a project feel free to contact me on mastodon [@nonnullish@indieweb.social](https://elk.zone/indieweb.social/@nonnullish)** :)
