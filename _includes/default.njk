@@ -24,10 +24,20 @@ title: nonnullish
   </head>
   <body>
     <aside>
-    <h3>nika (@nonnullish)</h3>
-
+    <div class="flower">
+      <svg viewBox="0 0 20 60" version="1.1"
+        xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <path
+          style="fill:none;stroke:#000000;stroke-width:0.15;stroke-linecap:round;stroke-linejoin:round;paint-order:markers stroke fill"
+          d="m 3.1429413,54.487562 c -1.1231639,-6.55394 -5.4070246,-20.92747 -1.0421051,-26.74737 0.9400551,-1.2534 2.2578951,15.19281 2.2578951,14.4158 0,-4.49611 2.643268,-8.92014 4.16842,-13.02632 0.08305,-0.22359 3.0967707,-7.77327 3.6473687,-6.94737 1.800541,2.70081 -4.8900747,17.13045 -6.9789757,19.21935 -0.947062,-5.41454 0.739388,-11.9462 1.073713,-16.96146 0.230089,-3.68142 1.184379,-10.89184 1.986872,-12.383 -3.220053,-0.0318 1.7725677,-12.67349955 2.6045557,-11.84150955 0.734933,0.73493 -1.6508467,5.50805005 -1.9650127,6.32488005 -0.05695,0.14809 -0.695254,2.0212 -0.675473,1.96501 0.408069,-1.15905 0.408749,-1.26797 0.73688,-1.8422 0.430136,-0.75273 2.9549887,-4.60549 3.8072117,-4.60549 1.120981,0 -5.6796997,8.7653095 -2.272046,4.78971 0.401042,-0.46788 4.429376,-5.21146 5.09675,-4.54409 0.804596,0.8046 -5.6377617,8.3885095 -6.7547297,9.0267795"
+          id="flower" />
+      </svg>
+    </div>
+    <div class="bio">
+      <h3>nika (@nonnullish)</h3>
       <p>I like interactive interfaces (both software and hardware).</p>
       <p>In February 2023 I graduated with an engineering degree in Automatic Control and Robotics.</p>
+      <p>These days I'm mostly inspired by TypeScript error messages <3</p>
       <ul>
         <li>
         <a href="/">all</a>
@@ -36,9 +46,10 @@ title: nonnullish
         <a href="/posts">posts</a>
         </li>
         <li>
-        <a class="twitter-link" href="https://twitter.com/nonnullish">twitter</a>
+        <a href="https://elk.zone/indieweb.social/@nonnullish">mastodon</a>
         </li>
       </ul>
+      </div>
     </aside>
     <main>
       {% if date %}
@@ -49,5 +60,23 @@ title: nonnullish
       {% endif %}
       {{ content | smartquotes | safe }}  
     </main>
+
+    <script>
+      if (window.innerHeight < window.innerWidth) {
+        const path = document.querySelector('#flower');
+        const pathLength = path.getTotalLength();
+        path.style.strokeDasharray = pathLength + ' ' + pathLength;
+        path.style.strokeDashoffset = pathLength;
+        path.getBoundingClientRect();
+
+        window.addEventListener("scroll", (e) => {
+          console.log('halo');
+          const scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+          const drawLength = pathLength * scrollPercentage;
+          path.style.strokeDashoffset = pathLength - drawLength;
+          path.style.strokeDasharray = (scrollPercentage >= 0.99) ? "none" : (`${pathLength} ${pathLength}`);
+        });
+    }
+  </script>
   </body>
 </html>
