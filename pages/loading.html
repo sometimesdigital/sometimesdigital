@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Spinners</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    @keyframes back {
+      from {
+        transform: var(--currentTransform);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    body {
+      --background-start: #edf7ff;
+      --background-end-rgb: 255, 255, 255;
+      background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) var(--background-start);
+      width: 100dvw;
+      height: 100dvh;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      --currentTransform: 'none';
+    }
+
+    body[data-spinning] {
+      --bs-spinner-animation-speed: 0.75s;
+      --bs-spinner-animation-name: spinner-border;
+      animation: var(--bs-spinner-animation-speed) linear infinite var(--bs-spinner-animation-name) !important;
+    }
+
+    body[data-spinning] .custom-spinner:before {
+      animation: none;
+    }
+
+    main {
+      position: relative;
+    }
+
+    .navbar-brand {
+      display: flex;
+      gap: 8px;
+    }
+
+    .container {
+      height: 100%;
+    }
+
+    .list-group {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+      border-radius: 0;
+    }
+
+    .list-group-item,
+    .list-group-item:hover,
+    .list-group-item:active,
+    .list-group-item-action,
+    .list-group-item-action:hover,
+    .list-group-item-action:active {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-bootleg {
+      border: 1px solid #d7d5d7;
+      background-color: #f3f2f3;
+      position: sticky;
+    }
+
+    .btn-bootleg:hover,
+    .btn-bootleg:active {
+      border: 1px solid #d7d5d7 !important;
+      background-color: #ecebec !important;
+    }
+
+    .btn-wrapper {
+      position: fixed;
+      left: calc(50dvw - 150px / 2);
+      top: calc(50dvh - 50px / 2);
+    }
+
+    .btn-chaos {
+      width: 150px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-chaos .custom-spinner {
+      background-color: #f3f2f3;
+    }
+
+    .custom-spinner {
+      width: 1.5rem;
+      height: 1.5rem;
+      position: relative;
+      box-sizing: border-box;
+      background-clip: padding-box;
+      border: solid 2px transparent;
+      border-radius: 100%;
+    }
+
+    .custom-spinner:before {
+      --bs-spinner-animation-speed: 0.75s;
+      --bs-spinner-animation-name: spinner-border;
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      margin: -2px;
+      border-radius: inherit;
+      background: conic-gradient(#908e90 170deg, transparent 340deg, transparent);
+      animation: var(--bs-spinner-animation-speed) linear infinite var(--bs-spinner-animation-name);
+    }
+
+    header:before {
+      content: '';
+      display: block;
+      background: conic-gradient(from 180deg at 50% 50%, #16abff10 0deg, #0885ff10 55deg, #54d6ff10 120deg, #0071ff10 160deg, transparent 360deg);
+      width: 50dvw;
+      height: 40dvh;
+      filter: blur(90px);
+      position: absolute;
+      left: 40%;
+    }
+
+    footer {
+      font-size: small;
+    }
+
+    @media (max-aspect-ratio: 1000/850) {
+      aside {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">v1.0</a>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Docs</a>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Examples</a>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-3">
+    <div class="row h-100">
+      <aside class="col-sm-3">
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action">Accordion</a>
+          <a class="list-group-item list-group-item-action">Alerts</a>
+          <a class="list-group-item list-group-item-action">Badge</a>
+          <a class="list-group-item list-group-item-action">Breadcrumb</a>
+          <a class="list-group-item list-group-item-action">Buttons</a>
+          <a class="list-group-item list-group-item-action">Button group</a>
+          <a class="list-group-item list-group-item-action">Card</a>
+          <a class="list-group-item list-group-item-action">Carousel</a>
+          <a class="list-group-item list-group-item-action">Close button</a>
+          <a class="list-group-item list-group-item-action">Collapse</a>
+          <a class="list-group-item list-group-item-action">Dropdowns</a>
+          <a class="list-group-item list-group-item-action">List group</a>
+          <a class="list-group-item list-group-item-action">Modal</a>
+          <a class="list-group-item list-group-item-action">Navbar</a>
+          <a class="list-group-item list-group-item-action">Navs &amp; tabs</a>
+          <a class="list-group-item list-group-item-action">Offcanvas</a>
+          <a class="list-group-item list-group-item-action">Pagination</a>
+          <a class="list-group-item list-group-item-action">Placeholders</a>
+          <a class="list-group-item list-group-item-action">Popovers</a>
+          <a class="list-group-item list-group-item-action">Progress</a>
+          <a class="list-group-item list-group-item-action">Scrollspy</a>
+          <a class="list-group-item list-group-item-action">Spinners</a>
+          <a class="list-group-item list-group-item-action">Toasts</a>
+          <a class="list-group-item list-group-item-action">Tooltips</a>
+        </div>
+      </aside>
+      <main class="col">
+        <header class="my-4">
+          <span class="badge bg-primary rounded-pill fw-normal">New!</span>
+          <h1>Button Spinners</h1>
+          <p>Indicate the loading state of a button.</p>
+          <p>These “spinners” can be used to show the loading state in your projects. There is some JavaScript involved
+            and the whole thing is quite unhinged. Their appearance, alignment, and sizing can be easily customized
+            utility classes, if you write the corresponding utility styles yourself.</p>
+          <p>For accessibility purposes, you probably shouldn't use those, at all.</p>
+        </header>
+
+        <div class="btn-wrapper">
+          <button type="button" class="btn btn-bootleg btn-chaos" onclick="(() => {
+                            document.body.style.setProperty('--currentTransform', getComputedStyle(document.body).transform);
+                            document.body.style.setProperty('animation', '0.75s linear 0s 1 back');
+                            document.body.toggleAttribute('data-spinning');
+                        })()">
+            <div class="custom-spinner"></div>
+          </button>
+        </div>
+      </main>
+      <aside class="col-sm-3">
+      </aside>
+    </div>
+  </div>
+
+  <footer class="text-center py-3 mt-5">
+    <p>I may have overdone this joke.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
