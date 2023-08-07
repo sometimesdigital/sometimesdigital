@@ -3,6 +3,7 @@ title: I bought a keyboard on Aliexpress and the arrow keys weren’t working an
 description: Taking the right to repair to the next level...
 date: 2023-02-11
 highlight: true
+comments: true
 ---
 In July last year I bought a wireless mechanical keyboard on Aliexpress for $30. The arrows didn't work, so I messaged the seller, and forgot about it. In January I noticed that the seller replied only a day after my message. The message read: _"Hello, please give me your e-mail and I will send you the software"_. I apologized for a late reply and sent my e-mail address. The next day I received an e-mail with three files hosted on a Chinese website qq.com: two videos and a `.bin` file.
 

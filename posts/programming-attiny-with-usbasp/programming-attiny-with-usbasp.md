@@ -2,6 +2,7 @@
 title: Programming ATtiny with USBASP and Arduino IDE
 description: Guide on how to program ATtiny with USBASP and Arduino IDE
 date: 2022-03-15
+comments: true
 ---
 
 #### USBASP drivers

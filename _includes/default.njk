@@ -4,23 +4,24 @@ title: nonnullish
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="WvF6xYa7L0uAA-w7Am4eQIcgKaefLC2KmVaRu97V9kc" />
-      <link rel="icon" type="image/x-icon" href="/favicon.png">
-    <link rel="stylesheet" type="text/css" href="/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/styles.css" />
-    <link rel="stylesheet" type="text/css" href="/prism-nord.css" />
-    {% if title !== 'nonnullish' %}
-      <title>nonnullish • {{ title }}</title>
-    {% else %}
-      <title>{{ title }}</title>
-    {% endif %}
-    <meta name="description" content="{{ description }}">
-  </head>
-  <body>
-    <aside>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="WvF6xYa7L0uAA-w7Am4eQIcgKaefLC2KmVaRu97V9kc" />
+  <link rel="icon" type="image/x-icon" href="/favicon.png">
+  <link rel="stylesheet" type="text/css" href="/styles.css" />
+  <link rel="stylesheet" type="text/css" href="/prism-nord.css" />
+  {% if title !== 'nonnullish' %}
+  <title>nonnullish • {{ title }}</title>
+  {% else %}
+  <title>{{ title }}</title>
+  {% endif %}
+  <meta name="description" content="{{ description }}">
+</head>
+
+<body>
+  <aside>
     <div class="flower">
       <svg viewBox="0 0 20 60" version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
@@ -35,44 +36,52 @@ title: nonnullish
       <p>I like interactive interfaces (both software and hardware).</p>
       <p>In February 2023 I graduated with an engineering degree in Automatic Control and Robotics.</p>
       <p>These days I'm mostly inspired by TypeScript error messages <3</p>
-      <ul>
-        <li>
-        <a href="/">all</a>
-        </li>
-        <li>
-        <a href="/posts">posts</a>
-        </li>
-        <li>
-        <a href="https://elk.zone/indieweb.social/@nonnullish">mastodon</a>
-        </li>
-      </ul>
-      </div>
-    </aside>
-    <main>
-      {% if date %}
-        <time>{{ date | readableDate }}</time>
-      {% endif %}
-      {% if title !== 'nonnullish' %}
-        <h3><a href="/">{{ title }}</a></h3>
-      {% endif %}
-      {{ content | smartquotes | safe }}  
-    </main>
+          <ul>
+            <li>
+              <a href="/">all</a>
+            </li>
+            <li>
+              <a href="/posts">posts</a>
+            </li>
+            <li>
+              <a href="https://elk.zone/indieweb.social/@nonnullish">mastodon</a>
+            </li>
+          </ul>
+    </div>
+  </aside>
+  <main>
+    {% if date %}
+    <time>{{ date | readableDate }}</time>
+    {% endif %}
+    {% if title !== 'nonnullish' %}
+    <h3><a href="{{ url }}">{{ title }}</a></h3>
+    {% endif %}
 
-    <script>
-      if (window.innerHeight < window.innerWidth) {
-        const path = document.querySelector('#flower');
-        const pathLength = path.getTotalLength();
-        path.style.strokeDasharray = pathLength + ' ' + pathLength;
-        path.style.strokeDashoffset = pathLength;
-        path.getBoundingClientRect();
+    {{ content | smartquotes | safe }}
 
-        window.addEventListener("scroll", (e) => {
-          const scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
-          const drawLength = pathLength * scrollPercentage;
-          path.style.strokeDashoffset = pathLength - drawLength;
-          path.style.strokeDasharray = (scrollPercentage >= 0.99) ? "none" : (`${pathLength} ${pathLength}`);
-        });
+    {% if comments %}
+    <script src="https://utteranc.es/client.js" repo="nonnullish/nonnullish" issue-term="pathname"
+      theme="preferred-color-scheme" crossorigin="anonymous" async>
+      </script>
+    {% endif %}
+  </main>
+
+  <script>
+    if (window.innerHeight < window.innerWidth && document.documentElement.scrollHeight > window.innerHeight) {
+      const path = document.querySelector('#flower');
+      const pathLength = path.getTotalLength();
+      path.style.strokeDasharray = pathLength + ' ' + pathLength;
+      path.style.strokeDashoffset = pathLength;
+      path.getBoundingClientRect();
+
+      window.addEventListener("scroll", (e) => {
+        const scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+        const drawLength = pathLength * scrollPercentage;
+        path.style.strokeDashoffset = pathLength - drawLength;
+        path.style.strokeDasharray = (scrollPercentage >= 0.99) ? "none" : (`${pathLength} ${pathLength}`);
+      });
     }
   </script>
-  </body>
+</body>
+
 </html>
