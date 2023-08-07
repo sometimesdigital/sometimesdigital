@@ -1,7 +1,7 @@
 ---
 title: Simulating old Windows desktop programs with JavaScript and Tauri
 description: Return to the times when buttons were not afraid of showing feelings.
-date: 2023-08-08
+date: 2023-08-07
 highlight: true
 comments: true
 ---
