@@ -239,7 +239,7 @@ code .highlight-line:before {
 @media (orientation: portrait) {
     .flower {
         height: 200px;
-        display: flex;
+        display: none;
         flex: 1;
         justify-content: center;
     }
