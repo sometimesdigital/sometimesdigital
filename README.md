@@ -28,3 +28,5 @@ some other of the projects i made while @ uni:
 ---
 
 **if you have a question about a post or a project feel free to contact me on mastodon [@nonnullish@indieweb.social](https://elk.zone/indieweb.social/@nonnullish)** :)
+
+npx @11ty/eleventy --serve --formats=md,jpg,png,css,gif,svg,njk,txt,html

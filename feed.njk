@@ -1,0 +1,26 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://nonnullish.pages.dev">
+	<icon>https://nonnullish.pages.dev/favicon.png</icon>
+	<logo>https://nonnullish.pages.dev/favicon.png</logo>
+  <title>nika (@nonnullish) - personal website</title>
+  <subtitle>nika (@nonnullish) - personal website</subtitle>
+  <link href="{{ url }}{{ permalink }}" rel="self" />
+  <updated>{{ '' | dateNow }}</updated>
+  <id>https://nonnullish.pages.dev</id>
+  <author>
+    <name>nika (@nonnullish)</name>
+    <email>@nonnullish@indieweb.social</email>
+  </author> 
+  {%- for post in collections.posts | reverse %}
+    <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="https://nonnullish.pages.dev{{ post.url }}" />
+    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <id>https://nonnullish.pages.dev{{ post.url }}</id>
+    <content xml:lang="en" type="html">{{ post.templateContent }}</content>
+  </entry>
+{%- endfor %} </feed>

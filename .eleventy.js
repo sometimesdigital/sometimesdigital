@@ -1,13 +1,27 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginDate = require("eleventy-plugin-date");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const inspect = require("node:util").inspect;
+const dayjs = require('dayjs');
 
-module.exports = function (eleventyConfig) {
+module.exports = (eleventyConfig) => {
+  // collections
+  eleventyConfig.addCollection("demos", (collectionApi) => collectionApi.getFilteredByGlob("demos/**/*"));
+  eleventyConfig.addCollection("posts", (collectionApi) => collectionApi.getFilteredByGlob("posts/**/*"));
+
+  // plugins
   eleventyConfig.addPlugin(syntaxHighlight, {
     alwaysWrapLineHighlights: true,
   });
+
   eleventyConfig.addPlugin(pluginDate);
   eleventyConfig.addPlugin(pluginRss);
+
+  // filters
+  eleventyConfig.addFilter("inspect", (object = {}) => inspect(object, { sorted: true }));
+  eleventyConfig.addFilter("MMM-YYYY", (date) => dayjs(date).format('MMM YYYY'));
+  eleventyConfig.addFilter("dateNow", (_) => dayjs().toISOString());
+
   eleventyConfig.addFilter("smartquotes", (post) => {
     const hawaii = new RegExp(/(?<=<(h|l|p[^r]).*)Hawai'i/g);
     const slang = new RegExp(/'(cause|em|til|twas)/g);
@@ -21,6 +35,7 @@ module.exports = function (eleventyConfig) {
     const closeSingles = new RegExp(
       /(?<=<(h|l|p[^r]).*‘.*)'(?=(\s|\p{P}|<))/gu
     );
+
     return post
       .replace(hawaii, "Hawaiʻi")
       .replace(slang, "’$1")
@@ -32,7 +47,8 @@ module.exports = function (eleventyConfig) {
       .replace(closeSingles, "’");
   });
 
+  // settings
   eleventyConfig.setServerOptions({
     showAllHosts: true,
   });
-};
+}

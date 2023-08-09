@@ -10,14 +10,14 @@ I replaced faulty switches in my boyfriend's Logitech G603 mouse and I thought I
 
 **DISASSEMBLY**
 
-[There are videos showing how to open up the mouse](https://www.youtube.com/watch?v=LOo_mwl1_s0). The top part has the buttons, the bottom one has the wheel. 
+[There are videos showing how to open up the mouse](https://www.youtube.com/watch?v=LOo_mwl1_s0). The top part has the buttons, the bottom one has the wheel.
 
 <div style="display: flex; gap: 10px;">
     <div>
-        <img src="top.PNG" alt="Top part of the Logitech G603 mouse">
+        <img style="width: 100%" src="top.PNG" alt="Top part of the Logitech G603 mouse">
     </div>
     <div>
-        <img  src="bottom.PNG" alt="Bottom part of the Logitech G603 mouse">
+        <img style="width: 100%" src="bottom.PNG" alt="Bottom part of the Logitech G603 mouse">
     </div>
 </div>
 
@@ -29,10 +29,10 @@ In the photo you can kind of see the damage on the old encoder (the left one, wi
 
 <div style="display: flex; gap: 1em;">
     <div>
-        <img src="encoders.PNG" alt="Scroll wheel modules for the Logitech G603 mouse - old and new">
+        <img style="width: 100%" src="encoders.PNG" alt="Scroll wheel modules for the Logitech G603 mouse - old and new">
     </div>
     <div>
-        <img  src="new-encoder.PNG" alt="Mouse with a replaced scroll wheel module">
+        <img style="width: 100%" src="new-encoder.PNG" alt="Mouse with a replaced scroll wheel module">
     </div>
 </div>
 
@@ -42,10 +42,10 @@ The left and right switches are covered by a plastic part from the top. Undernea
 
 <div style="display: flex; gap: 1em;">
     <div>
-        <img src="left-switch-top.PNG" alt="Top view of the left button in the Logitech G603 mouse">
+        <img style="width: 100%" src="left-switch-top.PNG" alt="Top view of the left button in the Logitech G603 mouse">
     </div>
     <div>
-        <img  src="left-switch.PNG" alt="Disassembled left button in the Logitech G603 mouse">
+        <img style="width: 100%" src="left-switch.PNG" alt="Disassembled left button in the Logitech G603 mouse">
     </div>
 </div>
 
