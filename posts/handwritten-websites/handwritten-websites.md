@@ -38,8 +38,11 @@ comments: true
     margin: 0;
   }
 
-  .message.link p a {
+   .message.link p a {
     text-decoration: none;
+  }
+
+  .message.link p > a {
     color: #666666;
   }
 
