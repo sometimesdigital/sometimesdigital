@@ -96,8 +96,9 @@ p:not(.description) a {
   text-decoration: underline;
 }
 
-p img {
+p img, p video {
   max-width: 100%;
+  border-radius: 0.3em;
 }
 
 p:has(img) {
@@ -125,7 +126,7 @@ img.demo {
   width: -webkit-fill-available;
   aspect-ratio: 16/9;
   object-fit: cover;
-  border-radius: 3px;
+  border-radius: 0.3em;
 }
 
 @media (orientation: landscape) {
@@ -270,7 +271,7 @@ code .highlight-line:before {
 
 blockquote.twitter-tweet {
   padding: 16px 40px 32px 32px;
-  border-radius: 0.3rem;
+  border-radius: 0.3em;
   border: 1px solid var(--text-color);
   position: relative;
   margin: 1em 0;
