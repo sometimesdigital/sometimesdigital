@@ -6,7 +6,7 @@ const dayjs = require('dayjs');
 
 module.exports = (eleventyConfig) => {
   // collections
-  eleventyConfig.addCollection("demos", (collectionApi) => collectionApi.getFilteredByGlob("demos/**/*"));
+  eleventyConfig.addCollection("projects", (collectionApi) => collectionApi.getFilteredByGlob("projects/**/*"));
   eleventyConfig.addCollection("posts", (collectionApi) => collectionApi.getFilteredByGlob("posts/**/*"));
 
   // plugins
