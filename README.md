@@ -2,7 +2,7 @@ hello!
 
 I like interactive interfaces - both software and hardware :)
 in February 2023 I graduated with an engineering degree in Automatic Control and Robotics,
-but I work as a front-end developer, mostly with React & TypeScript <3
+but I work as a front-end developer, mostly with React & TypeScript
 
 [i keep a personal website at this link also :)](https://nonnullish.pages.dev/)
 
@@ -12,7 +12,6 @@ favorite projects (js):
  - **[fridge poems](https://nonnullish.pages.dev/pages/fridge-poems/)**
  - **[hat tile puzzle](https://nonnullish.pages.dev/pages/hat-tile-puzzle/)**
  - **[screenduino](https://nonnullish.github.io/screenduino/)**: custom glyph generator for LCD screens
- - **[rss notifications in system tray](https://github.com/nonnullish/rss-notifications)**
  - **[todo page](https://github.com/nonnullish/todo)**
  - **[heck: hex the deck. the game](https://nonnullish.github.io/heck/)**
  - **[around the world](https://nonnullish.github.io/around-the-world/)**: makes a playlist with songs from different countries based on what the user listens to
