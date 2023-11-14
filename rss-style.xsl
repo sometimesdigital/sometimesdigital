@@ -24,6 +24,7 @@
                 <li><a href="/">all</a></li>
                 <li><a href="/posts">posts</a></li>
                 <li><a href="/projects">projects</a></li>
+                <li><a href="/weeknotes">weeknotes</a></li>
               </ul>
               <div class="icons">
                 <a href="https://github.com/nonnullish" title="GitHub"><i style="background-image: url('/github.svg'); padding-top: 6px"></i></a>
@@ -33,9 +34,6 @@
             </div>
           </header>
           <article>
-            <hgroup>
-              <h2>posts</h2>
-            </hgroup>
             <p>(this page is an rss feed actually)</p>
             <ul>
               <xsl:for-each select="/atom:feed/atom:entry">

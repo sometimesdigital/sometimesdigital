@@ -8,6 +8,7 @@ module.exports = (eleventyConfig) => {
   // collections
   eleventyConfig.addCollection("projects", (collectionApi) => collectionApi.getFilteredByGlob("projects/**/*"));
   eleventyConfig.addCollection("posts", (collectionApi) => collectionApi.getFilteredByGlob("posts/**/*"));
+  eleventyConfig.addCollection("weeknotes", (collectionApi) => collectionApi.getFilteredByGlob("weeknotes/**/*"));
 
   // plugins
   eleventyConfig.addPlugin(syntaxHighlight, {
