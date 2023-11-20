@@ -17,16 +17,13 @@ date: 2023-11-20T16:37:00+01:00
     aspect-ratio: 1/1;
     border-radius: 100%;
     overflow: hidden;
+    width: 150px;
+    margin-inline: calc((100% - 150px) / 2);
   }
 
   .half {
     width: 50%;
     margin-inline: 25%;
-  }
-
-  .fifth {
-    width: 20%;
-    margin-inline: 40%;
   }
 
   .landscapes {
