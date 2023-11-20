@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      * {
+        overflow: hidden;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.8.0/lib/p5.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.6.1/randomColor.min.js"
+      integrity="sha512-vPeZ7JCboHcfpqSx5ZD+/jpEhS4JpXxfz9orSvAPPj0EKUVShU2tgy7XkU+oujBJKnWmu4hU7r9MMQNWPfXsYw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+      function mouseClicked() {
+        setup();
+      }
+
+      function makeNoise(t, noiseLevel, noiseScale) {
+        return noiseLevel * noise(noiseScale * t);
+      }
+
+      function setup() {
+        let w = windowWidth;
+        let h = (9 / 16) * w;
+
+        createCanvas(w, h);
+        background(
+          randomColor({
+            luminosity: "light",
+            hue: "#fff1cf",
+          })
+        );
+        strokeWeight(2);
+
+        let strokeWidth = 1;
+        let maxStrokeWidth = 5;
+
+        let noiseLevel = h;
+        let noiseScale = 0.005;
+
+        let t = 0;
+
+        let lineCount = 4;
+
+        for (let j = 1; j < lineCount + 1; j++) {
+          stroke(
+            randomColor({
+              luminosity: "light",
+              hue: "#bf7a4e",
+            })
+          );
+          noiseLevel = h / j;
+
+          while (t < w) {
+            line(t, h, t, h - makeNoise(t, noiseLevel, noiseScale));
+            t += 1;
+          }
+
+          noiseSeed(random(10));
+          t = 0;
+        }
+
+        noLoop();
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

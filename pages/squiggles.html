@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      * {
+        overflow: hidden;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.8.0/lib/p5.js"></script>
+
+    <script>
+      function mouseClicked() {
+        setup();
+      }
+
+      function makeNoise(t, noiseLevel, noiseScale) {
+        return noiseLevel * noise(noiseScale * t);
+      }
+
+      function scribble(t, r1, r2, f1, f2, w, h) {
+        let x = (r1 + r2 * cos(t * f2)) * sin(t * f1);
+        let y = r2 * sin(t * f2);
+
+        return [x, y];
+      }
+
+      function setup() {
+        let w = windowWidth;
+        let h = w;
+
+        let strokeWidth = 1;
+        let maxStrokeWidth = 3;
+
+        let noiseLevel = w / 2;
+        let noiseScale = 0.003;
+
+        let r1 = 100;
+        let r2 = 100;
+        let f1 = random();
+        let f2 = random();
+
+        let n = 1000;
+
+        createCanvas(w, h);
+
+        angleMode(DEGREES);
+        colorMode(HSB, 360, 100, 100, 100);
+        background(43, 19, 100); // color name: torinoko-iro
+        stroke(23, 59, 75); // color name: rakuda-iro
+        strokeWeight(strokeWidth);
+
+        const [x, y] = scribble(0, r1, r2, f1, f2, w, h);
+        let lastPoint = [
+          x + makeNoise(0, noiseLevel, noiseScale) + w / 3,
+          y + makeNoise(0, noiseLevel, noiseScale) + h / 8,
+        ];
+
+        let i = 1;
+
+        while (i < n) {
+          const [x, y] = scribble(i, r1, r2, f1, f2, w, h);
+
+          const newPoint = [
+            x + makeNoise(i, noiseLevel, noiseScale) + w / 3,
+            y + makeNoise(i, noiseLevel, noiseScale) + h / 8,
+          ];
+
+          line(...lastPoint, ...newPoint);
+
+          lastPoint = newPoint;
+
+          strokeWeight(
+            maxStrokeWidth * noise(noiseScale * i, noiseLevel, noiseScale)
+          );
+
+          i++;
+        }
+
+        noLoop();
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
