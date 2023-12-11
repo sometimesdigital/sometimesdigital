@@ -41,7 +41,7 @@ This broadcast is now facilitated by the fibre-optic technology. I guess “fibr
 
 I went to a model railway exhibition this week and then to a Christmas market. It’s too early for a Christmas market but it was close to the model railway thing. It was really pretty.
 
-<iframe class="iframe circle fifth" width="200" height="200" src="/pages/epicycles"></iframe>
+<iframe class="iframe circle" width="200" height="200" src="/pages/epicycles"></iframe>
 
 I want to make a plotter. The plotter has to have something to draw, and so I have been trying to figure out what it could draw. Its functionality is going to be somewhat limited because it won’t be able to put the pen away. I don’t want to include the drive that would do the “up” movement, so I want it to draw only continuous lines, and always start and end at the origin point. I thought it would be fun if it only drew squiggles. It’s a very unimpressive task for a person to do, but a ridiculously complicated one for a machine. Or maybe it’s just ridiculously complicated for me to make the machine do.
 
