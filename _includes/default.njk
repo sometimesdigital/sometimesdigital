@@ -2,13 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="WvF6xYa7L0uAA-w7Am4eQIcgKaefLC2KmVaRu97V9kc" />
     <link rel="icon" type="image/x-icon" href="/favicon.png" />
     <link rel="stylesheet" type="text/css" href="/styles.css" />
     <link rel="stylesheet" type="text/css" href="/prism-nord.css" />
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="WvF6xYa7L0uAA-w7Am4eQIcgKaefLC2KmVaRu97V9kc" />
+    <meta property="og:image" content="{% if page.fileSlug %}{{ page.fileSlug }}{% else %}preview{% endif %}.png" />
+    <meta property="og:image:secure_url" content="{% if page.fileSlug %}{{ page.fileSlug }}{% else %}preview{% endif %}.png" />
   </head>
 
   <body>
@@ -36,7 +38,7 @@
           </hgroup>
         {% endif %}
 
-        {{ content | smartquotes | safe }}
+        {{ content | smartquotes | previews | safe }}
 
         {% if comments %}
         <script
