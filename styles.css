@@ -1,3 +1,14 @@
+@font-face {
+  font-family: "Consola Mono";
+  src: url("./ConsolaMono-Book.ttf");
+}
+
+@font-face {
+  font-family: "Consola Mono";
+  src: url("ConsolaMono-Bold.ttf");
+  font-weight: bold;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -17,8 +28,9 @@
 }
 
 html {
-  font-family: "ui-rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "ui-rounded", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
   color: #2c303b;
   cursor: var(--cursor-default);
   line-height: 1.5;
@@ -31,6 +43,7 @@ html {
 
   ::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -159,8 +172,9 @@ html {
 
         & pre,
         code {
-          font-family: "Courier New", monospace !important;
-          font-weight: 500;
+          font-family: "Consola Mono" !important;
+          font-size: 0.9em;
+          font-weight: normal;
         }
 
         & .projects {
