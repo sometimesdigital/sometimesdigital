@@ -1,5 +1,5 @@
 ---
-title: Replacing switches in Logitech G603 mouse
+title: Replacing switches in a Logitech G603 mouse
 description: Guide on how to replace switches / buttons, and the scroll wheel in the Logitech G603 mouse
 date: 2023-05-18
 highlight: true
