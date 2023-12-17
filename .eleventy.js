@@ -51,63 +51,62 @@ module.exports = (eleventyConfig) => {
       .replace(closeSingles, "’");
   });
 
-  eleventyConfig.addFilter("previews", async function (post) {
-    const margin = 32;
-    registerFont('./ConsolaMono-Bold.ttf', { family: 'ConsolaMono-Bold' })
-    registerFont('./ConsolaMono-Book.ttf', { family: 'ConsolaMono' })
-
-
-    const title = this.ctx.title.split(' ').reduce((acc, curr, index) => {
-      const chunkIndex = Math.floor(index / 6);
-
-      if (!acc[chunkIndex]) {
-        acc[chunkIndex] = [];
-      }
-
-      acc[chunkIndex].push(curr);
-
-      return acc;
-    }, []).map(line => line.join(' ')).join('\n');
-
-    const output = path.dirname(this.page.outputPath);
-    const name = this.page.fileSlug.trim() || 'preview';
-    const author = "nonnullish";
+  eleventyConfig.addFilter("previews", async function (title) {
+    registerFont('./kalnia.ttf', { family: 'Kalnia' })
 
     const width = 1200;
-    const height = 627;
-
+    const height = 630;
+    const margin = 32;
     const canvas = createCanvas(width, height);
     const context = canvas.getContext("2d");
+    const output = path.dirname(this.page.outputPath);
+    const filename = this.page.fileSlug.trim() || 'preview';
+    const ext = "png";
+    const filepath = path.join(output, `${filename}.${ext}`);
+    const wordsPerLine = 7;
+
+    if (fs.existsSync(filepath)) {
+      return `${filename}.${ext}`;
+    }
+
+    const header = title
+      .split(' ')
+      .reduce((result, word, index) => {
+        const line = Math.floor(index / wordsPerLine);
+
+        if (!result[line]) {
+          result[line] = []; // begin new line
+        }
+
+        result[line].push(word);
+
+        return result;
+      }, [])
+      .map(line => line.join(' '))
+      .join('\n');
 
     context.fillStyle = "#ffffff";
     context.fillRect(0, 0, width, height);
 
-    const cat = await loadImage("./cat.jpg");
-    const catProportions = cat.width / cat.height;
-    const catPosition = {
-      w: height * catProportions,
-      h: height,
-      x: width - height * catProportions,
-      y: 0,
+    const fontSize = 36;
+    const lineCount = header.match(/\n/g)?.length ?? 0;
+
+    context.fillStyle = "#222222";
+    context.font = `${fontSize}px 'Kalnia'`;
+    context.textAlign = "center";
+    context.fillText(header, width / 2, (height - lineCount * fontSize) / 2);
+
+    const flower = await loadImage("./favicon.png");
+    const flowerSize = 32;
+    const flowerPosition = {
+      w: flowerSize,
+      h: flowerSize,
+      x: width - flowerSize - margin,
+      y: height - flowerSize - margin,
     };
 
-    let { w, h, x, y } = catPosition;
-    context.drawImage(cat, x, y, w, h);
-
-    let fontSize = 30;
-    context.fillStyle = "#222222";
-    context.font = `${fontSize}px 'ConsolaMono-Bold'`;
-    context.textAlign = "center";
-    context.fillText(title, (width - height * catProportions) / 2 + 50, (height - (title.match(/\n/g)?.length || 1) * fontSize) / 2);
-
-    if (title !== author) {
-      fontSize = 24;
-      context.font = `${fontSize}px 'ConsolaMono'`;
-      context.fillText("nonnullish", width / 2, height - fontSize - margin);
-    }
-
-    context.fillStyle = "#00000005";
-    context.fillRect(0, 0, width, height);
+    let { w, h, x, y } = flowerPosition;
+    context.drawImage(flower, x, y, w, h);
 
     const buffer = canvas.toBuffer("image/png");
 
@@ -115,9 +114,9 @@ module.exports = (eleventyConfig) => {
       fs.mkdirSync(output, { recursive: true });
     }
 
-    fs.writeFileSync(`${output}/${name}.png`, buffer);
+    fs.writeFileSync(filepath, buffer);
 
-    return post;
+    return `${filename}.${ext}`;
   });
 
   // settings
