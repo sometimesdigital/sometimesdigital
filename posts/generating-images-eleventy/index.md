@@ -12,10 +12,9 @@ I added the `og:media` image tags yesterday, and the approach seems to work, so 
 I am using the [filter functions](https://www.11ty.dev/docs/filters/) and generating the raster images directly inside of the filter with `node-canvas`, as described [in this article](https://blog.logrocket.com/creating-saving-images-node-canvas/).
 
 First I added the meta tags to my default layout. I called the filter `previews`, and I will be using the `title` variable as the argument.
-You may need to add the `baseUrl` variable to your config, or just hardcode your domain.
 
 ```html
-<meta property="og:image" content="{% raw %}{{ baseUrl }}{{ page.url }}{{ title | previews }}{% endraw %}" />
+<meta property="og:image" content="{% raw %}{{ title | previews }}{% endraw %}" />
 ```
 
 Then I wrote the filter.
