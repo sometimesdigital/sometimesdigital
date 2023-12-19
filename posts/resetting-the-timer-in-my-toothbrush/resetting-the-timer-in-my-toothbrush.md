@@ -1,5 +1,5 @@
 ---
-title: Resetting the Timer in My Toothbrush 
+title: Resetting the timer in my toothbrush 
 description: It’s still good to use, I swear
 date: 2023-12-19T16:12:00+01:00
 comments: true
