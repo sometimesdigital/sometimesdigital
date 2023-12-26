@@ -38,6 +38,8 @@ NickelMenu is wild. You can launch shell commands. I considered setting up SSH b
 ### Fonts
 I added [Libertinus Serif](https://github.com/alerque/libertinus). It really looks so nice. I added some other ones too, just in case, including Bookerly. The first search results for downloading Bookerly look really sketchy, but it turns out you can [download it from Amazon on their developer portal](https://developer.amazon.com/en-US/alexa/branding/echo-guidelines/identity-guidelines/typography). They don't mention the font name on the page but it is included in the set.
 
+I did also install [Atkinson Hyperlegible](https://brailleinstitute.org/freefont) and I was surprised how much of a difference it made.
+
 ### Screensaver
 I chose this [pretty picture of flowers](https://www.pexels.com/photo/delicate-flowers-in-tilt-shift-lens-8445490/). I cropped it to `1264×1680`, and put it in `.kobo/screensaver`. It only works with the "Show current read" and "Show book covers full screen" options checked on, and only when at least one book is in progress.
 
