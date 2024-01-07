@@ -1,5 +1,6 @@
 ---
 title: Weeknotes 49
+week: 49
 date: 2023-12-11T17:10:00+01:00
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Weeknotes 47
+week: 47
 date: 2023-11-27T11:10:00+01:00
 ---
 

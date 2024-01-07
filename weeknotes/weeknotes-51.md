@@ -1,5 +1,6 @@
 ---
 title: Weeknotes 51
+week: 51
 date: 2023-12-25T23:35:00+01:00
 ---
 

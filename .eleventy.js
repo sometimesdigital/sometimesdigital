@@ -11,7 +11,34 @@ module.exports = (eleventyConfig) => {
   // collections
   eleventyConfig.addCollection("projects", (collectionApi) => collectionApi.getFilteredByGlob("projects/**/*"));
   eleventyConfig.addCollection("posts", (collectionApi) => collectionApi.getFilteredByGlob("posts/**/*"));
-  eleventyConfig.addCollection("weeknotes", (collectionApi) => collectionApi.getFilteredByGlob("weeknotes/**/*"));
+  eleventyConfig.addCollection("weeknotes", (collectionApi) => {
+    const weeknotes = collectionApi.getFilteredByGlob("weeknotes/**/*");
+    const years = weeknotes.map(post => post.date.getFullYear());
+    const months = weeknotes.map(post => post.date.getMonth());
+
+    const uniqueYears = [...new Set(years)];
+    const uniqueMonths = [...new Set(months)];
+
+    const byMonth = (group) => uniqueMonths.reduce((prev, month) => {
+      const posts = group.filter(post => post.date.getMonth() === month);
+
+      return [
+        ...prev,
+        { month, posts }
+      ]
+    }, []);
+
+    const byYear = uniqueYears.reduce((prev, year) => {
+      const posts = weeknotes.filter(post => post.date.getFullYear() === year);
+
+      return [
+        ...prev,
+        { year, posts: byMonth(posts) }
+      ]
+    }, []);
+
+    return byYear;
+  });
 
   // plugins
   eleventyConfig.addPlugin(syntaxHighlight, {

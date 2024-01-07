@@ -1,5 +1,6 @@
 ---
 title: Weeknotes 48
+week: 48
 date: 2023-12-04T14:15:00+01:00
 ---
 

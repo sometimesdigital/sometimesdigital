@@ -1,5 +1,6 @@
 ---
 title: Weeknotes 45
+week: 45
 date: 2023-11-13T19:00:00+01:00
 ---
 
