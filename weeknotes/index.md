@@ -5,8 +5,15 @@ comments: false
 eleventyExcludeFromCollections: true
 ---
 
-<ul>
-    {%- for post in collections.weeknotes reversed -%}
-        <li><a style="text-decoration: none" href="{{ post.url }}">{{ post.data.title }}</a> <span style="opacity: 0.5">({{ post.data.date | readableDate }})</span></li>
-    {%- endfor -%}
-</ul>
+{%- for year in collections.weeknotes reversed -%}
+<p>{{ year.year }}</p>
+<div class="year">
+{%- for month in year.posts reversed -%}
+<div class="month">
+{% for post in month.posts reversed  %}
+<div class="week"><a href="{{ post.url }}">{{ post.data.week }}</a></div>
+{% endfor %}
+</div>
+{%- endfor -%}
+</div>
+{%- endfor -%}

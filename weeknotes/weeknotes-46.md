@@ -1,5 +1,6 @@
 ---
 title: Weeknotes 46
+week: 46
 date: 2023-11-20T16:37:00+01:00
 ---
 
