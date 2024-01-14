@@ -1,7 +1,7 @@
 ---
 title: Weeknotes 2
 week: 2
-date: 2024-01-14T14:35:00+01:00
+date: 2024-01-14T15:05:00+01:00
 ---
 
 This is the year of FIXING THINGS. Last year I started working full-time and I think I have learnt a lot in code review. Having another pair of eyes looking at my code has helped me learn new approaches and ways of thinking; <s>and see more reasons why my code sucks</s>.

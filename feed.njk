@@ -16,8 +16,7 @@ eleventyExcludeFromCollections: true
     <name>nika (@nonnullish)</name>
     <email>@nonnullish@indieweb.social</email>
   </author> 
-  {%- for post in collections.all | reverse %}
-    {% if post in collections.weeknotes or post in collections.posts %}
+  {%- for post in collections.rss | reverse %}
       <entry>
       <title>{{ post.data.title }}</title>
       <link href="https://nonnullish.pages.dev{{ post.url }}" />
@@ -25,6 +24,5 @@ eleventyExcludeFromCollections: true
       <id>https://nonnullish.pages.dev{{ post.url }}</id>
       <content xml:lang="en" type="html">{{ post.templateContent }}</content>
       </entry>
-    {% endif %}
   {%- endfor %}
 </feed>
