@@ -25,16 +25,16 @@ module.exports = (eleventyConfig) => {
 
       return [
         ...prev,
-        { month, posts }
+        ...posts.length ? [{ month, posts }] : []
       ]
     }, []);
 
     const byYear = uniqueYears.reduce((prev, year) => {
-      const posts = weeknotes.filter(post => post.date.getFullYear() === year);
+      const posts = byMonth(weeknotes.filter(post => post.date.getFullYear() === year));
 
       return [
         ...prev,
-        { year, posts: byMonth(posts) }
+        ...posts.length ? [{ year, posts }] : []
       ]
     }, []);
 
