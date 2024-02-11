@@ -27,9 +27,9 @@
                 <li><a href="/weeknotes">weeknotes</a></li>
               </ul>
               <div class="icons">
-                <a href="https://github.com/nonnullish" title="GitHub"><i style="background-image: url('/github.svg'); padding-top: 6px"></i></a>
-                <a href="https://elk.zone/indieweb.social/@nonnullish" title="Mastodon"><i style="background-image: url('/mastodon.svg')"></i></a>
-                <a href="/feed.xml" title="RSS"><i style="background-image: url('/rss.svg')"></i></a>
+                <a class="i" href="https://github.com/nonnullish" title="GitHub" style="background-image: url('/github.svg')"></a>
+                <a class="i" href="https://elk.zone/indieweb.social/@nonnullish" title="Mastodon" style="background-image: url('/mastodon.svg')"></a>
+                <a class="i" href="/feed.xml" title="RSS" style="background-image: url('/rss.svg')"></a>
               </div>
             </div>
           </header>
