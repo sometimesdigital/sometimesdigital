@@ -1,0 +1,282 @@
+@font-face {
+  font-family: "Commit Mono";
+  src: url("/assets/fonts/CommitMono.woff2");
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+:root {
+  --cursor-default: url('data:image/svg+xml,<svg width="4.9440918mm" height="8.4666672mm" viewBox="0 0 4.9440918 8.4666672" version="1.1" id="svg1688" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs1685" /><g id="layer1"><path style="fill:none;stroke:%23000000;stroke-width:0.309761;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 0.24522777,0.19807071 C 0.39267884,-0.34739445 3.9378818,4.4246308 4.3639043,4.8506498 6.0370295,6.523775 2.2282948,4.2962525 2.2282948,4.6218313 c 0,0.9497905 1.3168189,2.7816562 0.9152592,3.5847739 C 2.7375704,9.018576 2.1733118,5.0357124 1.3893038,4.7743799 1.2242941,4.7193995 0.46429387,7.8962822 0.39314433,6.7890334 0.32199479,5.6817846 7.9603689e-4,1.1023048 0.24522777,0.19807071 Z" id="path1907" /></g></svg>'),
+    auto;
+  --cursor-pointer: url('data:image/svg+xml,<svg width="4.9440918mm" height="8.4666672mm" viewBox="0 0 4.9440918 8.4666672" version="1.1" id="svg1688" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs1685" /><g id="layer1"><path style="fill:none;stroke:%23000000;stroke-width:0.309761;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 0.24522777,0.19807071 C 0.39267884,-0.34739445 3.9378818,4.4246308 4.3639043,4.8506498 6.0370295,6.523775 2.2282948,4.2962525 2.2282948,4.6218313 c 0,0.9497905 1.3168189,2.7816562 0.9152592,3.5847739 C 2.7375704,9.018576 2.1733118,5.0357124 1.3893038,4.7743799 1.2242941,4.7193995 0.46429387,7.8962822 0.39314433,6.7890334 0.32199479,5.6817846 7.9603689e-4,1.1023048 0.24522777,0.19807071 Z" id="path1907" /><path style="fill:none;stroke:%23ffcc00;stroke-width:0.309827;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 2.6711888,1.5888968 C 3.1452928,1.3355027 3.1691372,1.0333338 3.1470903,0.62174224 3.3875149,0.98730271 3.6785519,1.202892 4.1756516,1.1129953 3.5806524,1.3374522 3.7339745,1.7064873 3.6613711,2.1338808 3.4110239,1.5996914 3.1981211,1.4488836 2.6711888,1.5888968 Z" id="path7371" /><path style="fill:none;stroke:%23ffcc00;stroke-width:0.309827;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 3.4797122,6.1516247 C 3.985973,6.3324094 4.0520718,6.4346589 4.342042,6.1417238 4.2329185,6.5654342 4.2417255,6.6435989 4.6423695,6.9512901 4.0762895,6.6615344 4.1448717,6.7516983 3.7795906,6.9851638 4.0069167,6.4407789 3.9375167,6.4477266 3.4797122,6.1516247 Z" id="path7371-0" /><path style="fill:none;stroke:%23ffcc00;stroke-width:0.309827;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 0.99338146,7.3245157 C 1.5231983,7.2552466 1.3152186,7.245595 1.4240742,6.8480473 1.5369707,7.2707682 1.3638207,7.283779 1.853053,7.4257665 1.2176321,7.4511659 1.5455192,7.4543679 1.3418589,7.8370675 1.272716,7.2511909 1.4887332,7.6183168 0.99338146,7.3245157 Z" id="path7371-1" /></g></svg>'),
+    pointer;
+  --underline: url('data:image/svg+xml,<svg width="120" height="3" viewBox="0 0 31.749998 0.79375" version="1.1" id="svg13255" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs13252" /><g id="layer1" transform="translate(0.01322916,0.01322916)"><path style="fill:none;stroke:%23000000;stroke-width:0.15;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="m -0.01322916,0.41671876 c 0,0 3.01152096,-0.26553119 6.61656566,-0.27632989 C 10.208381,0.12959017 17.410774,0.65563365 21.60178,0.67678503 25.792786,0.69793641 31.736771,0.41671876 31.736771,0.41671876" id="path23703" /></g></svg>');
+}
+
+html {
+  font-family: "ui-rounded", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  color: #2c303b;
+  cursor: var(--cursor-default);
+  line-height: 1.5;
+  scrollbar-width: thin;
+
+  ::selection {
+    color: currentColor;
+    background: #f3eab9;
+  }
+
+  :focus {
+    outline: 3px solid #f3eab9;
+    border-radius: 8px;
+    outline-offset: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+  }
+
+  & body {
+    margin: auto;
+    height: 100dvh;
+    overflow: hidden;
+    width: min(100dvw, 768px);
+
+    & a {
+      cursor: var(--cursor-pointer);
+      color: currentColor;
+    }
+
+    & .i {
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 1lh;
+      width: 1lh;
+      display: inline-block;
+      vertical-align: bottom;
+    }
+
+    & figcaption {
+      text-align: center;
+    }
+
+    & h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    b,
+    strong {
+      font-weight: 600;
+    }
+
+    & hr {
+      height: 3px;
+      background-repeat: repeat-x;
+      background-image: var(--underline);
+      background-position: center;
+      border: hidden;
+      padding: 8px;
+    }
+
+    & main {
+      height: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-sizing: border-box;
+
+      & header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 16px 16px 0;
+
+        & ul {
+          margin: 0;
+          list-style: none;
+          padding: 0;
+
+          & li {
+            position: relative;
+            width: fit-content;
+
+            & a {
+              text-decoration: none;
+
+              &:after {
+                content: "";
+                position: absolute;
+                height: 3px;
+                left: 0;
+                bottom: -5px;
+                width: 100%;
+                background-repeat: repeat-x;
+                background-image: var(--underline);
+              }
+            }
+          }
+        }
+
+        & .icons {
+          & .i {
+            margin: 10px;
+            background-position: center;
+            background-size: contain;
+          }
+        }
+
+        & .links {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+
+      & article {
+        height: 100%;
+        overflow: auto;
+        animation: fadeIn 0.2s;
+
+        &:not(:has(.cat)) {
+          padding-inline: 16px;
+        }
+
+        & hgroup {
+          margin: 16px 0;
+
+          &>* {
+            margin: 0;
+          }
+
+          & a {
+            text-decoration: none;
+          }
+        }
+
+        & ul {
+          list-style-type: circle;
+        }
+
+        & img,
+        video {
+          max-width: 100%;
+          display: block;
+          margin: auto;
+        }
+
+        & pre,
+        code {
+          font-family: "Commit Mono" !important;
+          font-size: 0.9em;
+          font-weight: normal;
+        }
+
+        & .projects {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 16px;
+
+          & .item {
+            width: calc(50% - 16px / 2);
+            box-sizing: border-box;
+
+            & img {
+              aspect-ratio: 16/9;
+              object-fit: cover;
+            }
+          }
+        }
+
+        & .year {
+          display: grid;
+          gap: 1rem;
+
+          &:last-of-type {
+            .month {
+              grid-template-columns: repeat(5, 20%);
+            }
+          }
+
+          & .month {
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 20%);
+            justify-content: right;
+            justify-items: center;
+
+            & .week {
+              display: flex;
+              align-items: center;
+              width: min-content;
+              justify-content: center;
+              border-radius: 100%;
+
+              & a {
+                text-decoration: none;
+
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+
+        & .giscus {
+          margin-bottom: 16px;
+        }
+
+        & .cat {
+          height: 100%;
+          object-fit: contain;
+          object-position: right bottom;
+        }
+      }
+    }
+  }
+}
+
+/* twitter */
+
+blockquote.twitter-tweet {
+  padding: 16px 40px 32px 32px;
+  border-radius: 0.3em;
+  border: 1px solid var(--text-color);
+  position: relative;
+  margin: 1em 0;
+}
+
+blockquote.twitter-tweet a {
+  color: var(--twitter);
+}
+
+blockquote.twitter-tweet::before {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden='true' style='fill: %231d9bf0'%3E%3Cg%3E%3Cpath d='M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}

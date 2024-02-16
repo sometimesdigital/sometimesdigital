@@ -80,7 +80,7 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addFilter("previews", async function (title) {
-    registerFont('./kalnia.ttf', { family: 'Kalnia' })
+    registerFont('./assets/fonts/kalnia.ttf', { family: 'Kalnia' })
 
     const width = 1200;
     const height = 630;
@@ -124,7 +124,7 @@ module.exports = (eleventyConfig) => {
     context.textAlign = "center";
     context.fillText(header, width / 2, (height - lineCount * fontSize) / 2);
 
-    const flower = await loadImage("./favicon.png");
+    const flower = await loadImage("./assets/images/favicon.png");
     const flowerSize = 32;
     const flowerPosition = {
       w: flowerSize,
