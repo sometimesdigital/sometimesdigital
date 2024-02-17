@@ -6,6 +6,7 @@ const path = require('path');
 const { createCanvas, loadImage, registerFont } = require("canvas");
 const inspect = require("node:util").inspect;
 const dayjs = require('dayjs');
+const getBlogroll = require("./blogroll/blogroll.js");
 
 module.exports = (eleventyConfig) => {
   // collections
@@ -146,6 +147,12 @@ module.exports = (eleventyConfig) => {
 
     return `${filename}.${ext}`;
   });
+
+  // blogroll
+  eleventyConfig.addGlobalData(
+    "blogroll",
+    async () => await getBlogroll(),
+  )
 
   // settings
   eleventyConfig.setServerOptions({

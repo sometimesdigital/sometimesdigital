@@ -244,6 +244,30 @@ html {
           }
         }
 
+        & .blogroll-card {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+
+          & h4.blog-title {
+            display: flex;
+            align-items: center;
+            gap: 1ch;
+
+            & img {
+              width: 1em;
+              height: 1em;
+              margin: 0;
+              border-radius: 3px;
+            }
+          }
+
+          & h3.post-title a {
+            text-decoration: none;
+          }
+        }
+
         & .giscus {
           margin-bottom: 16px;
         }
