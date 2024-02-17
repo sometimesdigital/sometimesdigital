@@ -1,18 +1,12 @@
 const dayjs = require('dayjs');
 const Parser = require('rss-parser');
 const parser = new Parser({ timeout: 5000 });
-
-const blogroll = [
-  "https://maya.land/feed.xml",
-  "https://sweetfish.site/feed.txt",
-  "https://tomoe.asia/index.xml",
-  "https://www.todepond.com/feed/index.xml",
-];
+const blogroll = require('./blogroll.json')
 
 const getBlogroll = async () => {
   const feeds = [];
 
-  for await (const url of blogroll) {
+  for await (const { url } of blogroll) {
     const feed = await parser.parseURL(url);
     const post = feed.items.sort((a, b) => new Date(b.isoDate) - new Date(a.isoDate))?.at(0);
 
@@ -33,4 +27,4 @@ const getBlogroll = async () => {
   return feeds.sort((a, b) => new Date(b.post.date) - new Date(a.post.date));
 }
 
-module.exports = getBlogroll;
+module.exports = { getBlogroll };
