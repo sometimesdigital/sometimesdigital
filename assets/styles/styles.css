@@ -1,8 +1,3 @@
-@font-face {
-  font-family: "Commit Mono";
-  src: url("/assets/fonts/CommitMono.woff2");
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -36,9 +31,6 @@ html {
   }
 
   :focus {
-    outline: 3px solid #f3eab9;
-    border-radius: 8px;
-    outline-offset: 3px;
   }
 
   ::-webkit-scrollbar {
@@ -187,7 +179,7 @@ html {
 
         & pre,
         code {
-          font-family: "Commit Mono" !important;
+          font-family: "ui-monospace", Menlo, "SF Mono", "Andale Mono", "Cascadia Code", "Source Code Pro", "Roboto Mono", Monaco, Consolas, "DejaVu Sans Mono", monospace !important;
           font-size: 0.9em;
           font-weight: normal;
         }

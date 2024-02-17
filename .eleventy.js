@@ -6,7 +6,7 @@ const path = require('path');
 const { createCanvas, loadImage, registerFont } = require("canvas");
 const inspect = require("node:util").inspect;
 const dayjs = require('dayjs');
-const getBlogroll = require("./blogroll/blogroll.js");
+const { getBlogroll} = require("./blogroll/blogroll.js");
 
 module.exports = (eleventyConfig) => {
   // collections
