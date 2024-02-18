@@ -1,12 +1,13 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginDate = require("eleventy-plugin-date");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 const { createCanvas, loadImage, registerFont } = require("canvas");
 const inspect = require("node:util").inspect;
-const dayjs = require('dayjs');
-const { getBlogroll} = require("./blogroll/blogroll.js");
+const dayjs = require("dayjs");
+const { getBlogroll } = require("./links/blogroll.js");
+const bookmarks = require("./links/bookmarks.json");
 
 module.exports = (eleventyConfig) => {
   // collections
@@ -22,13 +23,13 @@ module.exports = (eleventyConfig) => {
     const uniqueMonths = [...new Set(months)];
 
     const byMonth = (group) => uniqueMonths.reduce((prev, month) => {
-      const posts = group.filter(post => post.date.getMonth() === month);
+        const posts = group.filter(post => post.date.getMonth() === month);
 
-      return [
+        return [
         ...prev,
         ...posts.length ? [{ month, posts }] : []
       ]
-    }, []);
+      }, []);
 
     const byYear = uniqueYears.reduce((prev, year) => {
       const posts = byMonth(weeknotes.filter(post => post.date.getFullYear() === year));
@@ -81,7 +82,7 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addFilter("previews", async function (title) {
-    registerFont('./assets/fonts/kalnia.ttf', { family: 'Kalnia' })
+    registerFont("./assets/fonts/kalnia.ttf", { family: "Kalnia" });
 
     const width = 1200;
     const height = 630;
@@ -89,7 +90,7 @@ module.exports = (eleventyConfig) => {
     const canvas = createCanvas(width, height);
     const context = canvas.getContext("2d");
     const output = path.dirname(this.page.outputPath);
-    const filename = this.page.fileSlug.trim() || 'preview';
+    const filename = this.page.fileSlug.trim() || "preview";
     const ext = "png";
     const filepath = path.join(output, `${filename}.${ext}`);
     const wordsPerLine = 7;
@@ -99,7 +100,7 @@ module.exports = (eleventyConfig) => {
     }
 
     const header = title
-      .split(' ')
+      .split(" ")
       .reduce((result, word, index) => {
         const line = Math.floor(index / wordsPerLine);
 
@@ -111,8 +112,8 @@ module.exports = (eleventyConfig) => {
 
         return result;
       }, [])
-      .map(line => line.join(' '))
-      .join('\n');
+      .map((line) => line.join(" "))
+      .join("\n");
 
     context.fillStyle = "#ffffff";
     context.fillRect(0, 0, width, height);
@@ -154,8 +155,14 @@ module.exports = (eleventyConfig) => {
     async () => await getBlogroll(),
   )
 
+  // bookmarks
+  eleventyConfig.addGlobalData("bookmarks", {
+    bookmarks,
+    tags: new Set(bookmarks.map((bookmark) => bookmark.tags).flat()),
+  });
+
   // settings
   eleventyConfig.setServerOptions({
     showAllHosts: true,
   });
-}
+};

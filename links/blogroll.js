@@ -7,7 +7,14 @@ const getBlogroll = async () => {
   const feeds = [];
 
   for await (const { url } of blogroll) {
-    const feed = await parser.parseURL(url);
+    let feed;
+
+    try {
+      feed = await parser.parseURL(url);
+    } catch(e) {
+      continue;
+    }
+
     const post = feed.items.sort((a, b) => new Date(b.isoDate) - new Date(a.isoDate))?.at(0);
 
     const entry = {
@@ -20,7 +27,7 @@ const getBlogroll = async () => {
         date: dayjs(post.isoDate).format('MMMM D, YYYY'),
       }
     };
-
+    console.log(entry)
     feeds.push(entry);
   }
 
