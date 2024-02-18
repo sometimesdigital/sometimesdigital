@@ -12,4 +12,4 @@ The documentation and the options in the free plan in Cloudflare are pretty cool
 
 I've bought a Hario V60-02 drip, and now I'm using that for coffee instead of a Bobble Presse french press. They're both really good, but the drip is easier to clean.
 
-I have read [a great article about SimCity and The Sims](https://donhopkins.medium.com/designing-user-interfaces-to-simulation-games-bd7a9d81e62d). I was born too early for The Sims, but just in time for The Sims 2, which still had a lot of good parts of the first game. It is quite important to me.
+I have read [a great article about SimCity and The Sims](https://donhopkins.medium.com/designing-user-interfaces-to-simulation-games-bd7a9d81e62d). I was born too late for The Sims, but just in time for The Sims 2, which still had a lot of good parts of the first game. It is quite important to me.
