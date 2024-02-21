@@ -32,7 +32,7 @@
       <article>
         {% if not home %}
           <hgroup>
-            {% if date %}<p><time>{{ date | readableDate }}</time></p>{% endif %}
+            {% if date %}<p><time>Last updated: {{ date | readableDate }}</time></p>{% endif %}
             <h2><a href="{{ url }}">{{ title }}</a></h2>
           </hgroup>
         {% endif %}
