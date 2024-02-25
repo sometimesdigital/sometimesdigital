@@ -51,7 +51,7 @@ The CLI tool will ask to choose the preferred stack. I went with React and TypeS
 
   By importing the stylesheet in HTML:
 
-  ```html
+  ```plain
   <link rel="stylesheet" href="https://unpkg.com/98.css" />
   ```
 
@@ -74,7 +74,7 @@ The CLI tool will ask to choose the preferred stack. I went with React and TypeS
 
   By importing the stylesheet in HTML:
 
-  ```html
+  ```plain
   <link rel="stylesheet" href="https://unpkg.com/xp.css" />
   ```
 
@@ -97,7 +97,7 @@ The CLI tool will ask to choose the preferred stack. I went with React and TypeS
 
   By importing the stylesheet in HTML:
 
-  ```html
+  ```plain
   <link rel="stylesheet" href="https://unpkg.com/7.css" />
   ```
 
