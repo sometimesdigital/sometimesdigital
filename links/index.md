@@ -56,7 +56,7 @@ eleventyExcludeFromCollections: true
 
 <ul>
 {%- for bookmark in bookmarks.bookmarks -%}
-  <li data-tags="{{ bookmark.tags | join: ', ' }}"><a href="{{ bookmark.url }}">{{ bookmark.title }}</a> {{ bookmark.note }} [{{ bookmark.tags | join: ', ' }}]</li>
+  <li data-tags="{{ bookmark.tags | join: ', ' }}"><a style="text-decoration: none" href="{{ bookmark.url }}">{{ bookmark.title }}</a> <i>{{ bookmark.note }} [{{ bookmark.tags | join: ', ' }}]</i></li>
 {%- endfor -%}
 </ul>
 

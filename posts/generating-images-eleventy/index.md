@@ -13,7 +13,7 @@ I am using the [filter functions](https://www.11ty.dev/docs/filters/) and genera
 
 First I added the meta tags to my default layout. I called the filter `previews`, and I will be using the `title` variable as the argument.
 
-```html
+```plain
 <meta property="og:image" content="{% raw %}{{ title | previews }}{% endraw %}" />
 ```
 

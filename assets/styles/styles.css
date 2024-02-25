@@ -8,21 +8,6 @@
   }
 }
 
-@font-face {
-  font-family: 'Latin Mono';
-  src: url('/assets/fonts/latin-mono-regular.woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Latin Mono';
-  src: url('/assets/fonts/latin-mono-italic.woff');
-  font-weight: normal;
-  font-style: italic;
-}
-
-
 :root {
   --cursor-default: url('data:image/svg+xml,<svg width="4.9440918mm" height="8.4666672mm" viewBox="0 0 4.9440918 8.4666672" version="1.1" id="svg1688" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs1685" /><g id="layer1"><path style="fill:none;stroke:%23000000;stroke-width:0.309761;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 0.24522777,0.19807071 C 0.39267884,-0.34739445 3.9378818,4.4246308 4.3639043,4.8506498 6.0370295,6.523775 2.2282948,4.2962525 2.2282948,4.6218313 c 0,0.9497905 1.3168189,2.7816562 0.9152592,3.5847739 C 2.7375704,9.018576 2.1733118,5.0357124 1.3893038,4.7743799 1.2242941,4.7193995 0.46429387,7.8962822 0.39314433,6.7890334 0.32199479,5.6817846 7.9603689e-4,1.1023048 0.24522777,0.19807071 Z" id="path1907" /></g></svg>'),
     auto;
@@ -35,13 +20,11 @@ html {
   font-family: "ui-rounded", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
-  /* font-family: "Latin Mono"; */
   -webkit-font-smoothing: antialiased;
   color: #2c303b;
   cursor: var(--cursor-default);
   line-height: 1.75;
   scrollbar-width: thin;
-  /* letter-spacing: -0.05ch; */
 
   ::selection {
     color: currentColor;
@@ -94,7 +77,6 @@ html {
     b,
     strong {
       font-weight: 600;
-      /* font-style: italic; */
     }
 
     & hr {
@@ -184,7 +166,6 @@ html {
 
         & ul {
           list-style-type: circle;
-          /* list-style-type: '* '; */
         }
 
         & img,
@@ -196,11 +177,9 @@ html {
 
         & pre,
         code {
-          /* font-family: "ui-monospace", Menlo, "SF Mono", "Andale Mono", "Cascadia Code", "Source Code Pro", "Roboto Mono", Monaco, Consolas, "DejaVu Sans Mono", monospace;
-          font-size: 0.9em; */
+          font-family: ui-monospace, Menlo, "SF Mono", "Andale Mono", "Cascadia Code", "Source Code Pro", "Roboto Mono", Monaco, Consolas, "DejaVu Sans Mono", monospace;
+          font-size: 0.9em;
           font-weight: normal;
-          font-family: inherit!important;
-          font-size: inherit!important;
           letter-spacing: 0;
         }
 

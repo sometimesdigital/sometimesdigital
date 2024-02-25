@@ -158,7 +158,7 @@ I was also happy to see that marquee isn’t yet gone.
 <div class="demo">
   <div>
 
-```html
+```plain
 <!DOCTYPE html>
 <html>
 <head>
