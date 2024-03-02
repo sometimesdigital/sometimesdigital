@@ -13,34 +13,35 @@
   </head>
 
   <body>
-    <main>
-      <header>
-        <div class="links">
-          <ul>
-            <li><a href="/">all</a></li>
-            <li><a href="/posts">posts</a></li>
-            <li><a href="/projects">projects</a></li>
-            <li><a href="/weeknotes">weeknotes</a></li>
-          </ul>
-          <div class="icons">
-            <a class="i" href="https://github.com/nonnullish" title="GitHub" style="background-image: url('/assets/icons/github.svg')"></a>
-            <a class="i" href="https://elk.zone/indieweb.social/@nonnullish" title="Mastodon" style="background-image: url('/assets/icons/mastodon.svg')"></a>
-            <a class="i" href="/feed.xml" title="RSS" style="background-image: url('/assets/icons/rss.svg')"></a>
-          </div>
+    <header>
+      <nav class="links">
+        <ul>
+          <li><a href="/">all</a></li>
+          <li><a href="/posts">posts</a></li>
+          <li><a href="/projects">projects</a></li>
+          <li><a href="/weeknotes">weeknotes</a></li>
+        </ul>
+        <div class="icons">
+          <a class="i" href="https://github.com/nonnullish" rel="me" title="GitHub" style="background-image: url('/assets/icons/github.svg')"></a>
+          <a class="i" href="https://elk.zone/indieweb.social/@nonnullish" rel="me" title="Mastodon" style="background-image: url('/assets/icons/mastodon.svg')"></a>
+          <a class="i" href="/feed.xml" title="RSS" style="background-image: url('/assets/icons/rss.svg')"></a>
         </div>
-      </header>
-      <article>
-        {% if not home %}
+      </nav>
+    </header>
+    <main>
+      {% if home %}
+         {{ content | safe }}
+      {% else %}
+        <article>
           <hgroup>
             {% if date %}<p><time>Last updated: {{ date | readableDate }}</time></p>{% endif %}
             <h2><a href="{{ url }}">{{ title }}</a></h2>
           </hgroup>
-        {% endif %}
 
-        {{ content | smartquotes | safe }}
+          {{ content | smartquotes | safe }}
 
-        {% if comments %}
-        <script
+          {% if comments %}
+            <script
           src="https://giscus.app/client.js"
           data-repo="nonnullish/nonnullish"
           data-repo-id="R_kgDOI892JQ"
@@ -56,8 +57,9 @@
           crossorigin="anonymous"
           async
         ></script>
-        {% endif %}
-      </article>
+          {% endif %}
+        </article>
+      {% endif %}
     </main>
   </body>
 </html>
