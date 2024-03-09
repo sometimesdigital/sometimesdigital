@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="/assets/styles/prism.css" />
     <link rel="stylesheet" type="text/css" href="/assets/styles/styles.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/styles/prism-rose-pine-dawn.css" />
     <link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}" />
@@ -40,30 +40,12 @@
           </hgroup>
 
           {{ content | smartquotes | safe }}
-
-          {% if comments %}
-            <script
-          src="https://giscus.app/client.js"
-          data-repo="nonnullish/nonnullish"
-          data-repo-id="R_kgDOI892JQ"
-          data-category="General"
-          data-category-id="DIC_kwDOI892Jc4CYfOT"
-          data-mapping="title"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="top"
-          data-theme="preferred_color_scheme"
-          data-lang="en"
-          crossorigin="anonymous"
-          async
-        ></script>
-          {% endif %}
         </article>
       {% endif %}
     </main>
-    <footer>
-      <script src="/_pagefind/pagefind-ui.js" onload="new PagefindUI({ element: '#search', showImages: false });"></script>
-    </footer>
+    {% if not home %}
+      <footer>
+      </footer>
+    {% endif %}
   </body>
 </html>
