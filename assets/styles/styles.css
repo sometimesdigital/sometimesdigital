@@ -9,11 +9,32 @@
     "Segoe UI Symbol";
   --color-background: #ffffff;
   --color-body: #000000;
-  --font-monospace: ui-monospace, Menlo, "SF Mono", "Andale Mono", "Cascadia Code", "Source Code Pro", "Roboto Mono", Monaco, Consolas, "DejaVu Sans Mono", monospace;
+  --font-monospace: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  --font-size: 0.875em;
   --line-height: 1.75;
   --padding: 16px;
   --scrollbar-width: thin;
   --selection-background: #f3eab9;
+  --prism-foreground: #393a34;
+  --prism-background: #f8f8f8;
+  --prism-comment: #a0ada0;
+  --prism-string: #b56959;
+  --prism-literal: #2f8a89;
+  --prism-keyword: #1c6b48;
+  --prism-function: #6c7834;
+  --prism-deleted: #a14f55;
+  --prism-class: #2993a3;
+  --prism-builtin: #ab5959;
+  --prism-property: #b58451;
+  --prism-namespace: #b05a78;
+  --prism-punctuation: #8e8f8b;
+  --prism-decorator: #bd8f8f;
+  --prism-number: #296aa3;
+  --prism-boolean: #1c6b48;
+  --prism-constant: #a65e2b;
+  --prism-regex: #ab5e3f;
+  --prism-json-property: #698c96;
+  --prism-font-family: inherit;
 }
 
 * {
@@ -21,7 +42,8 @@
   box-sizing: border-box;
 }
 
-::selection, mark {
+::selection,
+mark {
   background: var(--selection-background);
   color: currentColor;
 }
@@ -30,8 +52,11 @@ html {
   -webkit-font-smoothing: antialiased;
   color: var(--color-body);
   cursor: var(--cursor-default);
-  font-family: var(--font-body);
+  font-family: var(--font-monospace);
+  font-size: var(--font-size);
   line-height: var(--line-height);
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
 
   body {
     align-items: center;
@@ -39,6 +64,7 @@ html {
     flex-direction: column;
     margin: 0;
     min-height: 100dvh;
+    text-underline-offset: 0.15lh;
 
     a {
       color: currentColor;
@@ -148,7 +174,7 @@ html {
         }
 
         ul {
-          list-style-type: circle;
+          list-style-type: '* ';
         }
 
         img,
@@ -161,13 +187,13 @@ html {
         p {
           code {
             word-break: break-all;
+            background-color: var(--prism-background);
           }
         }
 
         pre,
         code {
           font-family: var(--font-monospace);
-          font-size: 0.9em;
         }
 
         .projects {
@@ -254,6 +280,10 @@ html {
           }
         }
       }
+    }
+
+    footer {
+      padding: 2lh 0;
     }
   }
 }
