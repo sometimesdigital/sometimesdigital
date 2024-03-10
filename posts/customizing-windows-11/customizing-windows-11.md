@@ -45,5 +45,7 @@ comments: true
  - Runs side-by-side with PowerShell 5.1
  - May be configured to get automatic updates with Windows Update
 
+#### Pretty folder icons by Emma Studies: [Free Desktop Organiser Folder Icons](https://emmastudies.gumroad.com/l/free-desktop-icons)
+
 #### Customize PowerShell prompt: [Oh My Posh](https://ohmyposh.dev/)
- - I like the [uew](https://ohmyposh.dev/docs/themes#uew) theme. I have it customized a bit.
+ - I find it a little buggy, and prone to breaking randomly, but it's still pretty nice. I like the [uew](https://ohmyposh.dev/docs/themes#uew) theme. I have it customized a bit.
