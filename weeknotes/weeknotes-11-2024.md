@@ -25,4 +25,4 @@ I’ve been repairing a woollen sweater with Swiss darning. The idea is to reinf
   src="https://www.dummies.com/wp-content/uploads/108880.image0.jpg"
 />
 
-I've been writing a little tool for making wall calendars. [I wrote about that some weeks ago](http://localhost:8080/weeknotes/weeknotes-1-2024/), but it's taking me a while. I wanted to rewrite it in Preact this time, but I'm feeling very stupid and can't make it work the way I would like it to. Maybe I'll get it done before the next year. 
+I've been writing a little tool for making wall calendars. [I wrote about that some weeks ago](/weeknotes/weeknotes-1-2024/), but it's taking me a while. I wanted to rewrite it in Preact this time, but I'm feeling very stupid and can't make it work the way I would like it to. Maybe I'll get it done before the next year. 
