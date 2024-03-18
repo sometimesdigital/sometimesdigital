@@ -16,7 +16,7 @@ I like the phrasing and the subtle note of mockery for Freud’s overzealous gen
 
 My computer dreams are always nice. “Maybe computers are like a safe space for you”. The next night after my Docker dream I had a pretty gory nightmare that had nothing to do with computers.
 
-I’ve been repairing a woollen sweater with Swiss darning. The idea is to reinforce the existing structural integrity of the fabric, rather than making a new layer. If you’re really careful about it, the stitching can be invisible. But I’m not, and I’m using red yarn, and making the patches heart-shaped.
+I’ve been repairing a woollen sweater with Swiss darning. The idea is to reinforce the existing structural integrity of the fabric instead of making a new layer. If you’re really careful about it, the stitching can be invisible. But I’m not, and I’m using red yarn, and making the patches heart-shaped.
 
 <img
   style="max-width: min(300px, 100%)"
