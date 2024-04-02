@@ -4,6 +4,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const fs = require("fs");
 const path = require("path");
 const { createCanvas, loadImage, registerFont } = require("canvas");
+const CanvasTextBlock = require("canvas-text-block");
 const inspect = require("node:util").inspect;
 const dayjs = require("dayjs");
 const { getBlogroll } = require("./links/blogroll.js");
@@ -23,13 +24,13 @@ module.exports = (eleventyConfig) => {
     const uniqueMonths = [...new Set(months)];
 
     const byMonth = (group) => uniqueMonths.reduce((prev, month) => {
-        const posts = group.filter(post => post.date.getMonth() === month);
+      const posts = group.filter(post => post.date.getMonth() === month);
 
-        return [
+      return [
         ...prev,
         ...posts.length ? [{ month, posts }] : []
       ]
-      }, []);
+    }, []);
 
     const byYear = uniqueYears.reduce((prev, year) => {
       const posts = byMonth(weeknotes.filter(post => post.date.getFullYear() === year));
@@ -82,52 +83,58 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addFilter("previews", async function (title) {
-    registerFont("./assets/fonts/kalnia.ttf", { family: "Kalnia" });
+    registerFont("./assets/fonts/inter.ttf", { family: "Inter" });
 
     const width = 1200;
     const height = 630;
-    const margin = 32;
+    const margin = 100;
     const canvas = createCanvas(width, height);
-    const context = canvas.getContext("2d");
+    const context = canvas.getContext("2d", { alpha: false });
     const output = path.dirname(this.page.outputPath);
     const filename = this.page.fileSlug.trim() || "preview";
     const ext = "png";
     const filepath = path.join(output, `${filename}.${ext}`);
-    const wordsPerLine = 7;
 
     if (fs.existsSync(filepath)) {
       return `${filename}.${ext}`;
     }
 
-    const header = title
-      .split(" ")
-      .reduce((result, word, index) => {
-        const line = Math.floor(index / wordsPerLine);
-
-        if (!result[line]) {
-          result[line] = []; // begin new line
-        }
-
-        result[line].push(word);
-
-        return result;
-      }, [])
-      .map((line) => line.join(" "))
-      .join("\n");
-
-    context.fillStyle = "#ffffff";
+    context.fillStyle = "#f4f4f4";
     context.fillRect(0, 0, width, height);
 
-    const fontSize = 36;
-    const lineCount = header.match(/\n/g)?.length ?? 0;
+    const date = new CanvasTextBlock(
+      canvas,
+      margin,
+      margin,
+      width - 2 * margin,
+      24 + margin,
+      {
+        color: "#222222",
+        fontFamily: "Inter",
+        fontSize: 24,
+      }
+    );
 
-    context.fillStyle = "#222222";
-    context.font = `${fontSize}px 'Kalnia'`;
-    context.textAlign = "center";
-    context.fillText(header, width / 2, (height - lineCount * fontSize) / 2);
+    date.setText(this.page.date ? dayjs(this.page.date).format('dddd, MMMM D, YYYY') : '');
+
+    const header = new CanvasTextBlock(
+      canvas,
+      margin,
+      24 + margin + 32,
+      width - 2 * margin,
+      height - 3 * margin - 24,
+      {
+        color: "#222222",
+        fontFamily: "Inter",
+        fontSize: 32,
+        lineHeight: 48,
+      }
+    );
+
+    header.setText(title);
 
     const flower = await loadImage("./assets/images/favicon.png");
-    const flowerSize = 32;
+    const flowerSize = 48;
     const flowerPosition = {
       w: flowerSize,
       h: flowerSize,
