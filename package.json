@@ -13,10 +13,11 @@
     "@11ty/eleventy": "^2.0.0",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
-    "eleventy-plugin-date": "^1.0.0"
+    "eleventy-plugin-date": "^1.0.0",
+    "canvas": "^2.11.2",
+    "canvas-text-block": "^1.1.2"
   },
   "dependencies": {
-    "canvas": "^2.11.2",
     "dayjs": "^1.11.9",
     "rss-parser": "^3.13.0"
   }
