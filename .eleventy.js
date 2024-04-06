@@ -83,6 +83,10 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addFilter("previews", async function (title) {
+    if (!title) {
+      return;
+    }
+
     registerFont("./assets/fonts/inter.ttf", { family: "Inter" });
 
     const width = 1200;

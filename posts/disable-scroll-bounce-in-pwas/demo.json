@@ -1,0 +1,9 @@
+{
+  "name": "Disable Scroll Bounce in PWAs | Demo",
+  "short_name": "Disable Scroll Bounce in PWAs | Demo",
+  "description": "Disable Scroll Bounce in PWAs | Demo",
+  "start_url": "/posts/disable-scroll-bounce-in-pwas/demo/",
+  "display": "fullscreen",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff"
+}
