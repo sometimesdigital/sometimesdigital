@@ -1,0 +1,44 @@
+---
+layout:
+eleventyExcludeFromCollections: true
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Disable Scroll Bounce in PWAs | Demo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Disable Scroll Bounce in PWAs | Demo" />
+    <link rel="manifest" href="../demo.json" />
+
+    <style>
+      @media all and (display-mode: fullscreen) {
+        html {
+          overscroll-behavior: none;
+        }
+      }
+
+      body {
+        font-family: monospace;
+        margin: 0;
+        width: 100dvw;
+        height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: linear-gradient(
+            to right,
+            rgb(203 213 225) 1px,
+            transparent 1px
+          ),
+          linear-gradient(to bottom, rgb(203 213 225) 1px, transparent 1px);
+        background-size: 2.5rem 2.5rem;
+        background-position: center center;
+      }
+    </style>
+  </head>
+  <body>
+    <p>(try scrolling up or down)</p>
+  </body>
+</html>
