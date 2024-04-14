@@ -4,7 +4,7 @@ layout: default.njk
 comments: false
 eleventyExcludeFromCollections: true
 ---
-
+[About Weeknotes](/posts/about-weeknotes/)
 {%- for year in collections.weeknotes reversed -%}
 <p>{{ year.year }}</p>
 <div class="year">
