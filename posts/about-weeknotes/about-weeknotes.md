@@ -31,3 +31,5 @@ See also:
  - [Declan's weeknotes](https://declanbyrd.co.uk/journal/tags/week-notes/)
  - [Jillian's weeknotes](https://jillian.garden/tagged/weeknotes)
  - [Jarrod's weeknotes](https://jayrude.dev/blog/)
+ - [Tomoe's weeknotes](https://tomoe.asia/)
+ - [Genny's weeknotes](https://nyble.dev/words/)
