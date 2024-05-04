@@ -4,14 +4,14 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet href="/assets/styles/rss-style.xsl" type="text/xsl"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://nonnullish.pages.dev">
-	<icon>https://nonnullish.pages.dev/assets/images/favicon.png</icon>
-	<logo>https://nonnullish.pages.dev/assets/images/favicon.png</logo>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://sometimes.digital">
+	<icon>https://sometimes.digital/assets/images/favicon.png</icon>
+	<logo>https://sometimes.digital/assets/images/favicon.png</logo>
   <title>nika (@nonnullish) - personal website</title>
   <subtitle>nika (@nonnullish) - personal website</subtitle>
   <link href="{{ url }}{{ permalink }}" rel="self" />
   <updated>{{ '' | dateNow }}</updated>
-  <id>https://nonnullish.pages.dev</id>
+  <id>https://sometimes.digital</id>
   <author>
     <name>nika (@nonnullish)</name>
     <email>@nonnullish@indieweb.social</email>
@@ -19,9 +19,9 @@ eleventyExcludeFromCollections: true
   {%- for post in collections.rss | reverse %}
       <entry>
       <title>{{ post.data.title }}</title>
-      <link href="https://nonnullish.pages.dev{{ post.url }}" />
+      <link href="https://sometimes.digital{{ post.url }}" />
       <updated>{{ post.date | dateToRfc3339 }}</updated>
-      <id>https://nonnullish.pages.dev{{ post.url }}</id>
+      <id>https://sometimes.digital{{ post.url }}</id>
       <content xml:lang="en" type="html">{{ post.templateContent }}</content>
       </entry>
   {%- endfor %}

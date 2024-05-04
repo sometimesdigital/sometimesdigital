@@ -5,12 +5,12 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://nonnullish.pages.dev</loc>
+        <loc>https://sometimes.digital</loc>
         <lastmod>{{ page.date.toISOString() }}</lastmod>
     </url>
     {% for page in collections.posts %}
         <url>
-            <loc>https://nonnullish.pages.dev{{ page.url | url }}</loc>
+            <loc>https://sometimes.digital{{ page.url | url }}</loc>
             <lastmod>{{ page.date.toISOString() }}</lastmod>
         </url>
     {% endfor %}

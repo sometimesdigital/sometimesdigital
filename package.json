@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "git stash -u && npx @11ty/eleventy --formats=md,jpg,png,css,gif,svg,njk,txt,html,xml,mp4,webp,xsl,ttf,woff,otf,webmanifest && git stash pop"
   },
   "keywords": [],
   "author": "",
