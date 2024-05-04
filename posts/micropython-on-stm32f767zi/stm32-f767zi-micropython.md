@@ -1,7 +1,6 @@
 ---
 title: Putting MicroPython on STM32 Nucleo F767ZI
 date: 2022-03-15
-comments: true
 ---
 
 (several ways to do this, but here's one with the STM32CubeProgrammer and Windows)

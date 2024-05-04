@@ -2,8 +2,6 @@
 title: Handwritten Websites
 description:
 date: 2023-08-11
-highlight: true
-comments: true
 ---
 
 <style>

@@ -1,7 +1,6 @@
 ---
-title: weeknotes
+title: Weeknotes
 layout: default.njk
-comments: false
 eleventyExcludeFromCollections: true
 ---
 [About Weeknotes](/posts/about-weeknotes/)

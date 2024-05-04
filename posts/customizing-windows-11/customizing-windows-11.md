@@ -2,7 +2,6 @@
 title: Customizing Windows 11
 description: My list of tools, plugins, and programs for making Windows 11 better
 date: 2024-02-21T17:50:00+01:00
-comments: true
 ---
 
 #### Remove Garbage: [Sophia Script for Windows](https://github.com/farag2/Sophia-Script-for-Windows)

@@ -1,5 +1,5 @@
 ---
-title: posts
+title: Posts
 layout: default.njk
 eleventyExcludeFromCollections: true
 ---
