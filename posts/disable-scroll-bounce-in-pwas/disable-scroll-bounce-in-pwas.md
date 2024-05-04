@@ -2,7 +2,6 @@
 title: Disable Scroll Bounce in PWAs with CSS
 description: A neat way to prevent the scroll bounce in PWAs with CSS
 date: 2024-04-06T17:42:00+02:00
-comments: true
 ---
 
 Here's a neat way to prevent the scroll bounce in PWAs with CSS:

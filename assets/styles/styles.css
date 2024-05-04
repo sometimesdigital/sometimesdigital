@@ -11,7 +11,7 @@
   --color-body: #000000;
   --font-monospace: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   --font-size: 0.875em;
-  --line-height: 1.75;
+  --line-height: 1.8;
   --padding: 16px;
   --scrollbar-width: thin;
   --selection-background: #f3eab9;
@@ -40,6 +40,7 @@
 * {
   scrollbar-width: thin;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection,
@@ -92,6 +93,7 @@ html {
     h6,
     b,
     strong {
+      font-size: inherit;
       font-weight: 600;
     }
 

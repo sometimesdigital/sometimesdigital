@@ -2,7 +2,6 @@
 title: Modding a Kobo Libra 2
 description: All the mods I added to my grandma's new Kobo Libra 2 before gifting it to her for Christmas
 date: 2023-12-15T19:20:00+01:00
-comments: true
 ---
 
 I'm writing down all the mods I added to my grandma's new Kobo Libra 2 before gifting it to her for Christmas, mostly for my own future reference, but also hoping that it may be useful for other people too.

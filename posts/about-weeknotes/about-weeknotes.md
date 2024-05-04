@@ -2,7 +2,6 @@
 title: "About Weeknotes"
 description: Writing about writing
 date: 2024-04-02T21:05:00+02:00
-comments: true
 ---
 
 The definition of weeknotes on [indieweb.org](https://indieweb.org/week_note) focuses on productivity and work, but I find [this post](https://interconnected.org/home/2018/07/24/weeknotes) more valuable, especially this part: 

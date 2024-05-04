@@ -2,8 +2,6 @@
 title: Replacing switches in a Logitech G603 mouse
 description: Guide on how to replace switches / buttons, and the scroll wheel in the Logitech G603 mouse
 date: 2023-05-18
-highlight: true
-comments: true
 ---
 
 I replaced faulty switches in my boyfriend's Logitech G603 mouse and I thought I would share the process. The issues were typical: buttons double clicking or not clicking at all, wheel jumping up and down, skipping steps, or scrolling in the wrong direction. The mouse is discontinued, but it's a really good model - it's wireless, has a nice form factor, two modes, and an interesting powering solution - you can run it on two batteries or one, in which case the mouse is lighter. So I'm glad this worked out - especially since the new parts cost me only around $15.

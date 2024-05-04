@@ -7,8 +7,8 @@ const { createCanvas, loadImage, registerFont } = require("canvas");
 const CanvasTextBlock = require("canvas-text-block");
 const inspect = require("node:util").inspect;
 const dayjs = require("dayjs");
-const { getBlogroll } = require("./links/blogroll.js");
-const bookmarks = require("./links/bookmarks.json");
+const { getBlogroll } = require("./blogroll/blogroll.js");
+const { execSync } = require('child_process')
 
 module.exports = (eleventyConfig) => {
   // collections
@@ -106,7 +106,59 @@ module.exports = (eleventyConfig) => {
     context.fillStyle = "#f4f4f4";
     context.fillRect(0, 0, width, height);
 
-    const date = new CanvasTextBlock(
+    if (!this.page.fileSlug) {
+      const flower = await loadImage("./assets/images/favicon.png");
+      const flowerSize = 48;
+      const flowerPosition = {
+        w: flowerSize,
+        h: flowerSize,
+        x: (width - flowerSize) / 2,
+        y: (height - flowerSize) / 2 - 48,
+      };
+
+      let { w, h, x, y } = flowerPosition;
+      context.drawImage(flower, x, y, w, h);
+
+      const name = new CanvasTextBlock(
+        canvas,
+        width / 2 - 67,
+        height / 2 ,
+        width - 2 * margin,
+        24 + margin,
+        {
+          color: "#222222",
+          fontFamily: "Inter",
+          fontSize: 28,
+        }
+      );
+      name.setText('nonnullish');
+
+      const domain = new CanvasTextBlock(
+        canvas,
+        width / 2 - 100,
+        height / 2 + 48 ,
+        width - 2 * margin,
+        24 + margin,
+        {
+          color: "#222222",
+          fontFamily: "Inter",
+          fontSize: 24,
+        }
+      );
+      domain.setText('sometimes.digital');
+
+      const buffer = canvas.toBuffer("image/png");
+
+      if (!fs.existsSync(output)) {
+        fs.mkdirSync(output, { recursive: true });
+      }
+
+      fs.writeFileSync(filepath, buffer);
+
+      return `${filename}.${ext}`;
+    }
+
+    const domain = new CanvasTextBlock(
       canvas,
       margin,
       margin,
@@ -118,8 +170,21 @@ module.exports = (eleventyConfig) => {
         fontSize: 24,
       }
     );
+    domain.setText('sometimes.digital');
 
-    date.setText(this.page.date ? dayjs(this.page.date).format('dddd, MMMM D, YYYY') : '');
+    const date = new CanvasTextBlock(
+      canvas,
+      margin,
+      height - 48 / 2 - 24 / 2 - margin,
+      width - 2 * margin,
+      24 + margin,
+      {
+        color: "#222222",
+        fontFamily: "Inter",
+        fontSize: 24,
+      }
+    );
+    date.setText(this.ctx.date ? dayjs(this.page.date).format('dddd, MMMM D, YYYY') : '');
 
     const header = new CanvasTextBlock(
       canvas,
@@ -166,14 +231,13 @@ module.exports = (eleventyConfig) => {
     async () => await getBlogroll(),
   )
 
-  // bookmarks
-  eleventyConfig.addGlobalData("bookmarks", {
-    bookmarks,
-    tags: new Set(bookmarks.map((bookmark) => bookmark.tags).flat()),
-  });
-
   // settings
   eleventyConfig.setServerOptions({
     showAllHosts: true,
   });
+
+  // pagefind
+  eleventyConfig.on('eleventy.after', () => {
+    execSync(`npx pagefind --source _site --glob \"**/*.html\"`, { encoding: 'utf-8' })
+  })
 };

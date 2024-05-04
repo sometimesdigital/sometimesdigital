@@ -2,7 +2,6 @@
 title: Generating Open Graph Images in Eleventy
 description: I added the og:media image tags yesterday, and the approach seems to work, so I'm going to share it in this post.
 date: 2023-12-17T13:17:00+01:00
-comments: true
 ---
 
 I added the `og:media` image tags yesterday, and the approach seems to work, so I'm going to share it in this post.
