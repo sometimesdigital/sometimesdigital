@@ -1,4 +1,4 @@
-Sitemap: https://nonnullish.pages.dev/sitemap.xml
+Sitemap: https://sometimes.digital/sitemap.xml
 
 # AI Data Scraper
 # https://darkvisitors.com/agents/anthropic-ai
