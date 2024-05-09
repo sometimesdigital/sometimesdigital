@@ -1,7 +1,7 @@
 ---
 title: Fast Fashion Begone
 description: I made an extension for filtering out fast fashion brands on Vinted
-date: 2024-05-09T21:45:00+02:00
+date: 2024-05-09T21:50:00+02:00
 hide: true
 ---
 I often use [Vinted](https://vinted.com/) to find second-hand clothes. I like that you can buy items from different European countries and that the shipping is cheap. I particularly treasure this hat with the Panasonic logo and the tagline “ideas for life”. I got it from some guy from Érd in Hungary.
