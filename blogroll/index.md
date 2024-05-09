@@ -4,8 +4,6 @@ layout: default.njk
 eleventyExcludeFromCollections: true
 ---
 
-<h3>blogroll</h3>
-
 {%- for blog in blogroll -%}
   <div class="blogroll-card">
     <hgroup class="info">
