@@ -90,11 +90,20 @@ html {
     h3,
     h4,
     h5,
-    h6,
+    h6 {
+      font-weight: 400;
+      font-family: serif;
+      letter-spacing: 1px;
+      font-style: italic;
+    }
+
+    strong,
     b,
-    strong {
-      font-size: inherit;
-      font-weight: 600;
+    em,
+    i {
+      font-family: serif;
+      letter-spacing: 1px;
+      font-size: 1.175rem;
     }
 
     hr {
@@ -175,8 +184,27 @@ html {
           }
         }
 
-        ul {
-          list-style-type: '* ';
+        @media only screen and (min-width: calc( 768px + 40px)) {
+          ul, ol {
+            padding: 0;
+          }
+        }
+
+        ul, ol {
+          margin: 0;
+          list-style-type: decimal;
+
+          li {
+            margin-bottom: 0.5em;
+            margin-top: 0.5em;
+            padding-left: 0.25em;
+            margin-left: -0.25em;
+
+            &::marker {
+              font-style: italic;
+              font-family: serif;
+            }
+          }
         }
 
         img,

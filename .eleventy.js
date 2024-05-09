@@ -1,6 +1,9 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginDate = require("eleventy-plugin-date");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const markdownIt = require("markdown-it");
+const markdownItFootnote = require("markdown-it-footnote");
+const markdownItAnchor = require("markdown-it-anchor");
 const fs = require("fs");
 const path = require("path");
 const { createCanvas, loadImage, registerFont } = require("canvas");
@@ -48,6 +51,31 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(syntaxHighlight, {
     alwaysWrapLineHighlights: true,
   });
+
+  const markdownLibrary = markdownIt({
+    html: true,
+    breaks: true,
+    linkify: true,
+    typographer: true,
+  })
+    .use(markdownItAnchor, {
+      permalink: true,
+      permalinkClass: "direct-link",
+      permalinkSymbol: "#",
+    })
+    .use(markdownItFootnote);
+
+  markdownLibrary.renderer.rules.footnote_caption = (tokens, idx) => {
+    let n = Number(tokens[idx].meta.id + 1).toString();
+
+    if (tokens[idx].meta.subId > 0) {
+      n += ":" + tokens[idx].meta.subId;
+    }
+
+    return n;
+  };
+
+  eleventyConfig.setLibrary("md", markdownLibrary);
 
   eleventyConfig.addPlugin(pluginDate);
   eleventyConfig.addPlugin(pluginRss);
@@ -122,7 +150,7 @@ module.exports = (eleventyConfig) => {
       const name = new CanvasTextBlock(
         canvas,
         width / 2 - 67,
-        height / 2 ,
+        height / 2,
         width - 2 * margin,
         24 + margin,
         {
@@ -136,7 +164,7 @@ module.exports = (eleventyConfig) => {
       const domain = new CanvasTextBlock(
         canvas,
         width / 2 - 100,
-        height / 2 + 48 ,
+        height / 2 + 48,
         width - 2 * margin,
         24 + margin,
         {
@@ -227,8 +255,8 @@ module.exports = (eleventyConfig) => {
 
   // blogroll
   eleventyConfig.addGlobalData(
-    "blogroll",
-    async () => await getBlogroll(),
+  "blogroll",
+  async () => await getBlogroll(),
   )
 
   // settings
