@@ -1,5 +1,5 @@
 ---
-title: (selected) projects
+title: (some) projects
 layout: default.njk
 eleventyExcludeFromCollections: true
 ---

@@ -15,7 +15,7 @@ const { execSync } = require('child_process')
 
 module.exports = (eleventyConfig) => {
   // collections
-  eleventyConfig.addCollection("rss", (collectionApi) => collectionApi.getFilteredByGlob(["weeknotes/**/*", "posts/**/*"]));
+  eleventyConfig.addCollection("rss", (collectionApi) => collectionApi.getFilteredByGlob(["weeknotes/**/*", "posts/**/*", "projects/**/*"]));
   eleventyConfig.addCollection("projects", (collectionApi) => collectionApi.getFilteredByGlob("projects/**/*"));
   eleventyConfig.addCollection("posts", (collectionApi) => collectionApi.getFilteredByGlob("posts/**/*"));
   eleventyConfig.addCollection("weeknotes", (collectionApi) => {
