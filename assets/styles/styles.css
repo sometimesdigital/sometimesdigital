@@ -50,6 +50,7 @@ mark {
 }
 
 html {
+  scrollbar-gutter: stable;
   -webkit-font-smoothing: antialiased;
   color: var(--color-body);
   cursor: var(--cursor-default);
@@ -60,10 +61,8 @@ html {
   -webkit-text-size-adjust: none;
 
   body {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
+    width: min(100dvw, 768px);
+    margin: 0 auto;
     min-height: 100dvh;
     text-underline-offset: 0.15lh;
 
@@ -117,11 +116,6 @@ html {
 
     header {
       padding: var(--padding);
-      position: sticky;
-      top: 0;
-      background-color: var(--color-background);
-      width: min(100dvw, 768px);
-      z-index: calc(infinity);
 
       ul {
         list-style: none;
@@ -162,13 +156,6 @@ html {
     }
 
     main {
-      background-position: bottom right;
-      background-repeat: no-repeat;
-      background-size: contain;
-      flex: 1;
-      height: 100%;
-      width: min(100dvw, 768px);
-
       article {
         padding: 0 var(--padding);
 
