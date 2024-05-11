@@ -36,6 +36,7 @@ I thought it would be nice to have an interactive way to explore this new shape 
       left: 10%;
       width: 90%;
       height: 65%;
+      background: currentcolor;
     }
   }
 </style>

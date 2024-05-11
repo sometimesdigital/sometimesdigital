@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx @11ty/eleventy --formats=md,jpg,png,css,gif,svg,njk,txt,html,xml,mp4,webp,xsl,ttf,woff,otf,webmanifest,domains",
+    "build": "npx @11ty/eleventy --formats=md,jpg,png,css,gif,svg,njk,txt,html,xml,mp4,webp,webm,xsl,ttf,woff,otf,webmanifest,domains",
     "start": "npm run build -- --incremental --serve"
   },
   "keywords": [],
@@ -18,7 +18,6 @@
     "canvas-text-block": "^1.1.2",
     "eleventy-plugin-date": "^1.0.0",
     "markdown-it": "^14.1.0",
-    "markdown-it-anchor": "^8.6.7",
     "markdown-it-footnote": "^4.0.0",
     "pagefind": "^1.1.0"
   },

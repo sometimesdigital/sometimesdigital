@@ -4,7 +4,7 @@ layout: default.njk
 eleventyExcludeFromCollections: true
 ---
 
-(writing things down so that I won’t forget them later)
+*(writing things down so that I won’t forget them later)*
 
 <ul>
     {%- for post in collections.posts reversed -%}

@@ -3,7 +3,6 @@ const pluginDate = require("eleventy-plugin-date");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const markdownIt = require("markdown-it");
 const markdownItFootnote = require("markdown-it-footnote");
-const markdownItAnchor = require("markdown-it-anchor");
 const fs = require("fs");
 const path = require("path");
 const { createCanvas, loadImage, registerFont } = require("canvas");
@@ -58,11 +57,6 @@ module.exports = (eleventyConfig) => {
     linkify: true,
     typographer: true,
   })
-    .use(markdownItAnchor, {
-      permalink: true,
-      permalinkClass: "direct-link",
-      permalinkSymbol: "#",
-    })
     .use(markdownItFootnote);
 
   markdownLibrary.renderer.rules.footnote_caption = (tokens, idx) => {

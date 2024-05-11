@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/styles/prism.css" />
     <link rel="stylesheet" type="text/css" href="/assets/styles/styles.css" />
     <link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
-    <title>{{ title }}</title>
+    <title>sometimes.digital / {{ title | lower }}</title>
     <meta name="description" content="{{ description }}" />
     <meta name="viewport" content="width=device-width, initial-scale=0.85" />
     <meta name="google-site-verification" content="WvF6xYa7L0uAA-w7Am4eQIcgKaefLC2KmVaRu97V9kc" />
@@ -23,13 +23,13 @@
           <li><a href="/weeknotes">weeknotes</a></li>
         </ul>
         <div class="icons">
-          <a class="i" href="https://github.com/nonnullish" rel="me" title="Git Repositories" style="background-image: url('/assets/icons/git.svg')"></a>
-          <a class="i" href="https://elk.zone/indieweb.social/@nonnullish" rel="me" title="Mastodon" style="background-image: url('/assets/icons/mastodon.svg')"></a>
+          <a class="i" href="/contact" title="Contact" style="background-image: url('/assets/icons/contact.svg')"></a>
           <a class="i" href="/feed.xml" title="RSS" style="background-image: url('/assets/icons/rss.svg')"></a>
+          <a class="i" href="/search" title="Search" style="background-image: url('/assets/icons/search.svg')"></a>
         </div>
       </nav>
     </header>
-    <main {% if home %} style="background-image: url('/assets/images/cat.webp')" {% endif %}>
+    <main>
       {% if home %}
          {{ content | safe }}
       {% else %}
