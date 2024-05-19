@@ -7,6 +7,6 @@ I've added some things to this page, like the [search](/search/) function. I was
 
 I have received a new work computer and [don't have to decide between Chrome and Docker Desktop anymore](/weeknotes/weeknotes-17-2024/).
 
-Yesterday my partner and I watched Eurovision. In my opinion, a good Eurovision song should: *1.* be catchy, *2.* be funny *3.* be somewhat political, *4.* have lyrics in the language of the country that it's representing, and *5.* not have corny rap interludes. I really liked Croatia's song, which met most of these requirements. I also really liked the crochet balaclavas.
+Yesterday my partner and I watched Eurovision. In my opinion, a good Eurovision song should: *1.* be catchy, *2.* be funny, *3.* be somewhat political, *4.* have lyrics in the language of the country that it's representing, and *5.* not have corny rap interludes. I really liked Croatia's song, which met most of these requirements. I also really liked the crochet balaclavas.
 
 Today we went on a walk and [saw a cool bird](https://elk.zone/indieweb.social/@nonnullish/112428755485110882). I haven't seen that bird before and used the [Merlin Bird ID](https://merlin.allaboutbirds.org/) app to identify it. The photo recognition didn't work, but the questionnaire did and it turned out to be a *fieldfare*. Cornell also has another bird app, [eBird](https://ebird.org/home), that is sort of like Pokémon Go except you collect sightings of real birds.
