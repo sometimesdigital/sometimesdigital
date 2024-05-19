@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1"
+  />
+  <head>
+    <title>snake</title>
+    <style>
+      * {
+        font-family: serif;
+      }
+
+      html {
+        overscroll-behavior: none;
+      }
+
+      body {
+        width: 100svw;
+        height: 100svh;
+        display: flex;
+        margin: 0;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+
+        svg {
+          width: min(600px, 90vw);
+          height: min(600px, 90vw);
+          border: 1px solid currentColor;
+          display: block;
+        }
+
+        .score {
+          padding-top: 1rem;
+        }
+
+        input {
+          border: 1px solid currentColor;
+        }
+
+        @media (pointer: fine) {
+          input {
+            display: none;
+          }
+        }
+      }
+    </style>
+    <script type="module">
+      const getRandomMultiple = (min, max, n) => {
+        const range = Math.floor((max - min) / n) + 1;
+        const randomIndex = Math.floor(Math.random() * range);
+        return min + randomIndex * n;
+      };
+
+      const Directions = {
+        UP: [0, -1],
+        RIGHT: [1, 0],
+        DOWN: [0, 1],
+        LEFT: [-1, 0],
+      };
+
+      const size = 600;
+      const distance = 10;
+      const timeout = 200;
+      const x0 = getRandomMultiple(0, size / 2, distance);
+      const y0 = getRandomMultiple(0, size / 2, distance);
+      let points = [
+        [x0, y0],
+        [x0 + distance, y0],
+      ];
+
+      let keys = [];
+      let direction = Directions.RIGHT;
+
+      const move = () => {
+        const [x1, y1] = points.at(-1);
+        const [x2, y2] = direction;
+        const count = Math.round(
+          document.querySelector("#textPath").getComputedTextLength() /
+            distance +
+            1
+        );
+        points = points.slice(-count);
+        points.push([x1 + x2 * distance, y1 + y2 * distance]);
+      };
+
+      const path = () => {
+        const [[x0, y0], ...rest] = points;
+        return `M${x0}, ${y0} ${rest.map(([x, y]) => `L${x}, ${y}`).join(" ")}`;
+      };
+
+      const isOver = () => {
+        const [x, y] = points.at(-1);
+
+        return (
+          x === 0 ||
+          x === size ||
+          y === 0 ||
+          y === size ||
+          !!points
+            .slice(0, -1)
+            .find((point) => point[0] === x && point[1] === y)
+        );
+      };
+
+      const addApples = (n = 1) => {
+        const elements = [];
+
+        for (let i = 0; i < n; i++) {
+          const x0 = getRandomMultiple(10, size - 10 - 40, distance);
+          const y0 = getRandomMultiple(10, size - 10 - 40, distance);
+          const [x1, y1] = [x0 + 40, y0];
+
+          const id = `apple-${Math.floor(
+            Math.random() * Number.MAX_SAFE_INTEGER
+          )}`;
+
+          const path = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "path"
+          );
+
+          path.setAttribute("id", id);
+          path.setAttribute("fill", "none");
+          path.setAttribute("stroke", "none");
+          path.setAttribute("d", `M${x0}, ${y0} L${x1}, ${y1}`);
+
+          const text = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "text"
+          );
+
+          const textPath = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "textPath"
+          );
+
+          textPath.setAttribute("href", `#${id}`);
+          textPath.textContent = "apple";
+          textPath.setAttribute("side", "right");
+
+          text.appendChild(textPath);
+
+          document.querySelector("svg").appendChild(path);
+          document.querySelector("svg").appendChild(text);
+          elements.push({ x0, y0, x1, y1, path, text });
+        }
+
+        return elements;
+      };
+
+      const handleInput = ({ key }) => {
+        const entered = (string) =>
+          keys.slice(-string.length).join("").toLowerCase() ===
+          string.toLowerCase();
+
+        keys.push(key);
+
+        document.querySelector("#textPath").textContent = document
+          .querySelector("#textPath")
+          .textContent.concat(key);
+
+        Object.keys(Directions).forEach((key) => {
+          if (entered(key)) {
+            keys = [];
+            direction = Directions[key];
+          }
+        });
+
+        move();
+      };
+
+      window.addEventListener("keydown", handleInput);
+
+      const isAppleConsumed = () => {
+        apples.forEach((apple, index) => {
+          if (
+            !!points.find(([x, y]) => x === apple.x0 && y === apple.y0) &&
+            !!points.find(([x, y]) => x === apple.x1 && y === apple.y1)
+          ) {
+            apples.splice(index, 1);
+            apple.path.remove();
+            apple.text.remove();
+
+            document.querySelector("#textPath").textContent = document
+              .querySelector("#textPath")
+              .textContent.concat("apple");
+
+            document.querySelector("#score").textContent =
+              Number(document.querySelector("#score").textContent) + 1;
+            apples.push(...addApples());
+            console.log(apples);
+          }
+        });
+      };
+
+      let apples = addApples();
+
+      while (true) {
+        if (isOver()) {
+          break;
+        }
+
+        move();
+        isAppleConsumed();
+
+        document.querySelector("#path").setAttribute("d", path());
+
+        await new Promise((r) => setTimeout(r, timeout));
+      }
+
+      window.removeEventListener("keydown", handleInput);
+    </script>
+  </head>
+  <body>
+    <section class="score">score: <span id="score">0</span></section>
+    <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <path id="path" fill="none" stroke="none"></path>
+      <text>
+        <textPath id="textPath" side="right" href="#path">snake</textPath>
+      </text>
+    </svg>
+    <input
+      id="input"
+      type="text"
+      autocorrect="off"
+      autocomplete="off"
+      spellcheck="false"
+    />
+  </body>
+</html>
