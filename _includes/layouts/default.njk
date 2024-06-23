@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="/assets/styles/prism.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/styles/styles.css" />
+    <link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
+    <title>sometimes.digital / {{ title | lower }}</title>
+    <meta name="description" content="{{ description }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="view-transition" content="same-origin" />
+    <meta property="og:image" content="{{ title | previews }}" />
+    <script data-goatcounter="https://usuallyanalog.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  </head>
+
+  <body>
+    {% include "../sections/header.njk" %}
+    {{ content | safe }}
+  </body>
+</html>

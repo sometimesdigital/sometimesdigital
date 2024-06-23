@@ -1,11 +1,12 @@
 ---
 title: Weeknotes
-layout: default.njk
+layout: layouts/weeknotes.njk
 eleventyExcludeFromCollections: true
 ---
 [About Weeknotes](/posts/about-weeknotes/)
+
 {%- for year in collections.weeknotes reversed -%}
-<p>{{ year.year }}</p>
+<p><b>{{ year.year }}</b></p>
 <div class="year">
 {%- for month in year.posts reversed -%}
 <div class="month">

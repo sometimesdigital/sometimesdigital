@@ -1,4 +1,3 @@
 {
-    "layout": "default.njk",
-    "comments": "true"
+    "layout": "layouts/weeknote"
 }

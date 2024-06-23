@@ -1,6 +1,6 @@
 ---
 title: Projects
-layout: default.njk
+layout: layouts/default.njk
 eleventyExcludeFromCollections: true
 ---
 <style>

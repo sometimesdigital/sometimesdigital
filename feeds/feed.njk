@@ -1,0 +1,14 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+layout: layouts/rss
+---
+{%- for post in collections.rss | reverse %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="https://sometimes.digital{{ post.url }}" />
+    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <id>https://sometimes.digital{{ post.url }}</id>
+    <content xml:lang="en" type="html">{{ post.templateContent }}</content>
+  </entry>
+{%- endfor %}
