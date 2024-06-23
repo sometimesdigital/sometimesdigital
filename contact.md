@@ -1,6 +1,6 @@
 ---
 title: Contact
-layout: default.njk
+layout: layouts/default.njk
 description: Contact me
 ---
 

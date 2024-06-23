@@ -15,6 +15,8 @@ const { execSync } = require('child_process')
 module.exports = (eleventyConfig) => {
   // collections
   eleventyConfig.addCollection("rss", (collectionApi) => collectionApi.getFilteredByGlob(["weeknotes/**/*", "posts/**/*", "projects/**/*"]));
+  eleventyConfig.addCollection("rssPosts", (collectionApi) => collectionApi.getFilteredByGlob(["posts/**/*"]));
+  eleventyConfig.addCollection("rssWeeknotes", (collectionApi) => collectionApi.getFilteredByGlob(["weeknotes/**/*"]));
   eleventyConfig.addCollection("projects", (collectionApi) => collectionApi.getFilteredByGlob("projects/**/*"));
   eleventyConfig.addCollection("posts", (collectionApi) => collectionApi.getFilteredByGlob("posts/**/*"));
   eleventyConfig.addCollection("weeknotes", (collectionApi) => {
@@ -50,6 +52,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(syntaxHighlight, {
     alwaysWrapLineHighlights: true,
   });
+  // eleventyConfig.addPlugin(shikiTwoslash, { theme: "css-variables" })
 
   const markdownLibrary = markdownIt({
     html: true,

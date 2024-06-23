@@ -1,6 +1,6 @@
 ---
 title: Posts
-layout: default.njk
+layout: layouts/post.njk
 eleventyExcludeFromCollections: true
 ---
 

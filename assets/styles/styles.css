@@ -1,46 +1,75 @@
+@font-face {
+  font-family: 'PT Root';
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url('/assets/fonts/pt-root.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('/assets/fonts/playfair_display_latin_ext.woff2') format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('/assets/fonts/playfair_display_latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Mono';
+  font-style: regular;
+  font-display: swap;
+  src: url('/assets/fonts/mono.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mono';
+  font-style: italic;
+  font-display: swap;
+  src: url('/assets/fonts/mono-italic.woff2') format('woff2');
+}
+
 :root {
   --cursor-default: url('data:image/svg+xml,<svg width="4.9440918mm" height="8.4666672mm" viewBox="0 0 4.9440918 8.4666672" version="1.1" id="svg1688" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs1685" /><g id="layer1"><path style="fill:none;stroke:%23000000;stroke-width:0.309761;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 0.24522777,0.19807071 C 0.39267884,-0.34739445 3.9378818,4.4246308 4.3639043,4.8506498 6.0370295,6.523775 2.2282948,4.2962525 2.2282948,4.6218313 c 0,0.9497905 1.3168189,2.7816562 0.9152592,3.5847739 C 2.7375704,9.018576 2.1733118,5.0357124 1.3893038,4.7743799 1.2242941,4.7193995 0.46429387,7.8962822 0.39314433,6.7890334 0.32199479,5.6817846 7.9603689e-4,1.1023048 0.24522777,0.19807071 Z" id="path1907" /></g></svg>'),
     auto;
   --cursor-pointer: url('data:image/svg+xml,<svg width="4.9440918mm" height="8.4666672mm" viewBox="0 0 4.9440918 8.4666672" version="1.1" id="svg1688" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs1685" /><g id="layer1"><path style="fill:none;stroke:%23000000;stroke-width:0.309761;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 0.24522777,0.19807071 C 0.39267884,-0.34739445 3.9378818,4.4246308 4.3639043,4.8506498 6.0370295,6.523775 2.2282948,4.2962525 2.2282948,4.6218313 c 0,0.9497905 1.3168189,2.7816562 0.9152592,3.5847739 C 2.7375704,9.018576 2.1733118,5.0357124 1.3893038,4.7743799 1.2242941,4.7193995 0.46429387,7.8962822 0.39314433,6.7890334 0.32199479,5.6817846 7.9603689e-4,1.1023048 0.24522777,0.19807071 Z" id="path1907" /><path style="fill:none;stroke:%23ffcc00;stroke-width:0.309827;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 2.6711888,1.5888968 C 3.1452928,1.3355027 3.1691372,1.0333338 3.1470903,0.62174224 3.3875149,0.98730271 3.6785519,1.202892 4.1756516,1.1129953 3.5806524,1.3374522 3.7339745,1.7064873 3.6613711,2.1338808 3.4110239,1.5996914 3.1981211,1.4488836 2.6711888,1.5888968 Z" id="path7371" /><path style="fill:none;stroke:%23ffcc00;stroke-width:0.309827;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 3.4797122,6.1516247 C 3.985973,6.3324094 4.0520718,6.4346589 4.342042,6.1417238 4.2329185,6.5654342 4.2417255,6.6435989 4.6423695,6.9512901 4.0762895,6.6615344 4.1448717,6.7516983 3.7795906,6.9851638 4.0069167,6.4407789 3.9375167,6.4477266 3.4797122,6.1516247 Z" id="path7371-0" /><path style="fill:none;stroke:%23ffcc00;stroke-width:0.309827;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 0.99338146,7.3245157 C 1.5231983,7.2552466 1.3152186,7.245595 1.4240742,6.8480473 1.5369707,7.2707682 1.3638207,7.283779 1.853053,7.4257665 1.2176321,7.4511659 1.5455192,7.4543679 1.3418589,7.8370675 1.272716,7.2511909 1.4887332,7.6183168 0.99338146,7.3245157 Z" id="path7371-1" /></g></svg>'),
     pointer;
   --underline: url('data:image/svg+xml,<svg width="120" height="3" viewBox="0 0 31.749998 0.79375" version="1.1" id="svg13255" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs13252" /><g id="layer1" transform="translate(0.01322916,0.01322916)"><path style="fill:none;stroke:%23000000;stroke-width:0.15;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="m -0.01322916,0.41671876 c 0,0 3.01152096,-0.26553119 6.61656566,-0.27632989 C 10.208381,0.12959017 17.410774,0.65563365 21.60178,0.67678503 25.792786,0.69793641 31.736771,0.41671876 31.736771,0.41671876" id="path23703" /></g></svg>');
-  --font-body: "ui-rounded", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  --font-body: "PT Root", "ui-rounded", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
-  --color-background: #ffffff;
+  --color-background: #fff;
   --color-body: #000000;
-  --font-monospace: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  --font-size: 0.875em;
-  --line-height: 1.8;
+  --font-monospace: "Mono", ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  --font-size: 1em;
+  --line-height: 1.85;
   --padding: 16px;
   --scrollbar-width: thin;
   --selection-background: #f3eab9;
-  --prism-foreground: #393a34;
-  --prism-background: #f8f8f8;
-  --prism-comment: #a0ada0;
-  --prism-string: #b56959;
-  --prism-literal: #2f8a89;
-  --prism-keyword: #1c6b48;
-  --prism-function: #6c7834;
-  --prism-deleted: #a14f55;
-  --prism-class: #2993a3;
-  --prism-builtin: #ab5959;
-  --prism-property: #b58451;
-  --prism-namespace: #b05a78;
-  --prism-punctuation: #8e8f8b;
-  --prism-decorator: #bd8f8f;
-  --prism-number: #296aa3;
-  --prism-boolean: #1c6b48;
-  --prism-constant: #a65e2b;
-  --prism-regex: #ab5e3f;
-  --prism-json-property: #698c96;
-  --prism-font-family: inherit;
+  --prism-background: transparent;
+  --prism-font-family: var(--font-monospace);
+  --prism-block-font-size: 1em;
 }
 
 * {
   scrollbar-width: thin;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
+
+
+  &:focus-visible {
+    outline: 2px solid currentColor !important;
+    border-radius: 2px !important;
+  }
 }
 
 ::selection,
@@ -54,21 +83,33 @@ html {
   -webkit-font-smoothing: antialiased;
   color: var(--color-body);
   cursor: var(--cursor-default);
-  font-family: var(--font-monospace);
+  font-family: var(--font-body);
   font-size: var(--font-size);
   line-height: var(--line-height);
-  text-size-adjust: none;
-  -webkit-text-size-adjust: none;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 
   body {
-    width: min(100dvw, 768px);
+    background-color: var(--color-background);
+    font-weight: 480;
+    width: min(100%, 768px);
     margin: 0 auto;
     min-height: 100dvh;
     text-underline-offset: 0.15lh;
+    display: flex;
+    flex-direction: column;
 
     a {
       color: currentColor;
       cursor: var(--cursor-pointer);
+      text-decoration: 1px underline;
+      transition: font-weight 0.2s;
+
+      &:hover,
+      &[data-active] {
+        font-weight: 700;
+        transition: font-weight 0.2s;
+      }
     }
 
     .i {
@@ -90,19 +131,12 @@ html {
     h4,
     h5,
     h6 {
-      font-weight: 400;
-      font-family: serif;
-      letter-spacing: 1px;
-      font-style: italic;
+      font-weight: 700;
     }
 
-    strong,
-    b,
     em,
     i {
-      font-family: serif;
-      letter-spacing: 1px;
-      font-size: 1.175rem;
+      font-family: "Playfair Display";
       line-height: 1;
     }
 
@@ -122,6 +156,10 @@ html {
         list-style: none;
         margin: 0;
         padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        gap: 1rem;
 
         li {
           position: relative;
@@ -129,39 +167,24 @@ html {
 
           a {
             text-decoration: none;
-
-            &:after {
-              background-image: var(--underline);
-              background-repeat: repeat-x;
-              bottom: -1px;
-              content: "";
-              height: 3px;
-              left: 0;
-              position: absolute;
-              width: 100%;
-            }
           }
         }
-      }
-
-      .icons {
-        display: flex;
-        gap: 2ch;
-      }
-
-      .links {
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
       }
     }
 
     main {
+      flex: 1;
+      padding-bottom: 2lh;
+
       article {
         padding: 0 var(--padding);
 
         hgroup {
           margin: var(--padding) 0;
+
+          h2 {
+            line-height: 1.2;
+          }
 
           &>* {
             margin: 0;
@@ -172,13 +195,16 @@ html {
           }
         }
 
-        @media only screen and (min-width: calc( 768px + 40px)) {
-          ul, ol {
+        @media only screen and (min-width: calc(768px + 40px)) {
+
+          ul,
+          ol {
             padding: 0;
           }
         }
 
-        ul, ol {
+        ul,
+        ol {
           margin: 0;
           list-style-type: decimal;
 
@@ -190,7 +216,7 @@ html {
 
             &::marker {
               font-style: italic;
-              font-family: serif;
+              font-family: "Playfair Display";
             }
           }
         }
@@ -205,27 +231,15 @@ html {
         p {
           code {
             word-break: break-all;
-            background-color: var(--prism-background);
+            font-size: 1em;
           }
         }
 
         pre,
         code {
           font-family: var(--font-monospace);
-        }
-
-        .projects {
-          display: grid;
-          grid-gap: var(--padding);
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-          .item {
-            img {
-              aspect-ratio: 16/9;
-              object-fit: cover;
-              width: 100%;
-            }
-          }
+          font-size: 1em;
+          line-height: 1.15;
         }
 
         /* weeknotes */
@@ -301,7 +315,30 @@ html {
     }
 
     footer {
-      padding: 2lh 0;
+      padding: 2lh var(--padding);
+      border-top: 1px solid #d9d9d9;
+
+      .columns {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        img {
+          max-width: 60px;
+          max-height: 60px;
+          display: block;
+        }
+
+        .links {
+          column-count: 2;
+          column-gap: 3rem;
+
+          a {
+            display: block;
+          }
+
+        }
+      }
     }
   }
 }
@@ -327,4 +364,29 @@ blockquote.twitter-tweet::before {
   right: 16px;
   top: 16px;
   width: 20px;
+}
+
+.gallery {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(2, auto);
+  gap: 1rem;
+  width: max(min(1280px, 70vw), 100%);
+  margin-left: calc((100% - max(min(1280px, 70vw), 100%)) / 2);
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+
+  img {
+    min-width: 0;
+    display: block;
+    margin: 0;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  .gallery {
+    grid-template-columns: repeat(1, auto);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 }

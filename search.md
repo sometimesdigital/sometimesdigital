@@ -1,6 +1,6 @@
 ---
 title: Search
-layout: default.njk
+layout: layouts/page
 description: Search in site
 ---
 
@@ -17,14 +17,30 @@ description: Search in site
     --pagefind-ui-image-border-radius: 8px;
     --pagefind-ui-image-box-ratio: 3 / 2;
     --pagefind-ui-font: inherit;
+    --pagefind-ui-background: transparent;
 }
 
 .pagefind-ui * {
   font-size: 1rem!important;
 }
 
+.pagefind-ui__search-input {
+  border: none!important;
+  border-radius: 0!important;
+  border-bottom: 1px solid currentColor!important;
+  cursor: text!important;
+
+  &:focus-within {
+    border-radius: 2px!important;
+  }
+}
+
 .pagefind-ui input {
-  font-size: 19px!important;
+  font-size: 1rem!important;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 mark {

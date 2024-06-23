@@ -4,7 +4,7 @@ description: Writing about writing
 date: 2024-04-02T21:05:00+02:00
 ---
 
-The definition of weeknotes on [indieweb.org](https://indieweb.org/week_note) focuses on productivity and work, but I find [this post](https://interconnected.org/home/2018/07/24/weeknotes) more valuable, especially this part: 
+[Here's a nice post about weeknotes that I find quite valuable](https://interconnected.org/home/2018/07/24/weeknotes).
 
 > Individuals have fully rounded interests: yes this person is reporting on projects, but they’re also alive with feelings, and oh by the way they’ve also gone out and got ice creams for the office because it was hot this week.
 
@@ -12,9 +12,9 @@ My approach is that:
 
  - I write the notes for myself, mostly. I’d like them to be *nice*, but I’d also like to be free of any expectations or pressure.
  - I want them to be generally computer-adjacent, at least in part.
- - I would like them to be inviting — this is currently not very obvious as I don’t have any contact info listed, but I’d like people to reach out to talk about things I’ve mentioned, or anything else.
+ - I would like them to be inviting — I’d like people to feel welcome to reach out to talk about things I’ve mentioned, or anything else.
 
-Weeknotes are just personal blog posts that I write once per week. But I like the concept, the indexing (I just write the week number - that way I don’t need to quantify the notes, and it gives a general idea of the time in the year), and how at the end of the week I see notes from people I like. Some people have separate RSS feeds set up for different kinds of posts, which I might do, but for now it all goes into one bin. Sometimes I post the links on Mastodon, but I usually don’t.
+Weeknotes are just personal blog posts that I write once per week. But I like the concept, the indexing (I just write the week number - that way I don’t need to quantify the notes, and it gives a general idea of the time in the year), and how at the end of the week I see notes from people I like. I have [a separate RSS feed for weeknotes](/feeds/weeknotes.xml), but they do also go [into the general one](/feed.xml). Sometimes I post the links on Mastodon, but I usually don’t.
 
 The weekly schedule means that I can dedicate some time specifically for this. I don’t like to think too much about blogging or microblogging. I don’t like the compulsive urge to turn things into blog posts, or the workshopping of the phrasing of a tweet in the back of my head. Setting up a time in the week to write some thoughts works well enough. Sometimes I write things down for later during the week, but it’s not that intrusive.
 
@@ -32,3 +32,4 @@ See also:
  - [Jarrod's weeknotes](https://jayrude.dev/blog/)
  - [Tomoe's weeknotes](https://tomoe.asia/)
  - [Genny's weeknotes](https://nyble.dev/words/)
+ - [Sam's weeknotes](https://wlcx.cc/)
