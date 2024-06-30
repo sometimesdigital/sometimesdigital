@@ -1,26 +1,47 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const pluginDate = require("eleventy-plugin-date");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const markdownIt = require("markdown-it");
-const markdownItFootnote = require("markdown-it-footnote");
-const fs = require("fs");
-const path = require("path");
+const dates = require("eleventy-plugin-date");
+const rss = require("@11ty/eleventy-plugin-rss");
+const dayjs = require("dayjs");
+const { createFlickr } = require("flickr-sdk");
+
 const { createCanvas, loadImage, registerFont } = require("canvas");
 const CanvasTextBlock = require("canvas-text-block");
-const inspect = require("node:util").inspect;
-const dayjs = require("dayjs");
-const { getBlogroll } = require("./blogroll/blogroll.js");
-const { execSync } = require('child_process')
 
-module.exports = (eleventyConfig) => {
+const markdownIt = require("markdown-it");
+const footnotes = require("markdown-it-footnote");
+const anchors = require('markdown-it-anchor')
+
+const inspect = require("node:util").inspect;
+
+const path = require("path");
+const fs = require("fs");
+const { execSync } = require('child_process');
+require('dotenv').config();
+
+const { getBlogroll } = require("./src/blogroll/blogroll.js");
+
+const addCollection = (config, name, globs) => {
+  config.addCollection(name, (handler) => handler.getFilteredByGlob(globs));
+}
+
+const addCopies = (config, formats) => {
+  for (const format of formats) {
+    config.addPassthroughCopy(`src/**/*.${format}`);
+  }
+}
+
+module.exports = (config) => {
+  config.setTemplateFormats(["md", "njk", "html"]);
+  addCopies(config, ['css', 'domains', 'gif', 'jpg', 'mp4', 'otf', 'png', 'svg', 'ttf', 'txt', 'webm', 'webmanifest', 'webp', 'woff', 'woff2']);
+
   // collections
-  eleventyConfig.addCollection("rss", (collectionApi) => collectionApi.getFilteredByGlob(["weeknotes/**/*", "posts/**/*", "projects/**/*"]));
-  eleventyConfig.addCollection("rssPosts", (collectionApi) => collectionApi.getFilteredByGlob(["posts/**/*"]));
-  eleventyConfig.addCollection("rssWeeknotes", (collectionApi) => collectionApi.getFilteredByGlob(["weeknotes/**/*"]));
-  eleventyConfig.addCollection("projects", (collectionApi) => collectionApi.getFilteredByGlob("projects/**/*"));
-  eleventyConfig.addCollection("posts", (collectionApi) => collectionApi.getFilteredByGlob("posts/**/*"));
-  eleventyConfig.addCollection("weeknotes", (collectionApi) => {
-    const weeknotes = collectionApi.getFilteredByGlob("weeknotes/**/*");
+  addCollection(config, 'rss', ["src/weeknotes/**/*", "src/posts/**/*", "src/projects/**/*"]);
+  addCollection(config, 'rssPosts', "src/posts/**/*");
+  addCollection(config, 'rssWeeknotes', "src/weeknotes/**/*");
+  addCollection(config, 'posts', "src/posts/**/*");
+
+  config.addCollection("weeknotes", (handler) => {
+    const weeknotes = handler.getFilteredByGlob("src/weeknotes/**/*");
     const years = weeknotes.map(post => post.date.getFullYear());
     const months = weeknotes.map(post => post.date.getMonth());
 
@@ -49,20 +70,24 @@ module.exports = (eleventyConfig) => {
   });
 
   // plugins
-  eleventyConfig.addPlugin(syntaxHighlight, {
+  config.addPlugin(syntaxHighlight, {
     alwaysWrapLineHighlights: true,
   });
-  // eleventyConfig.addPlugin(shikiTwoslash, { theme: "css-variables" })
 
-  const markdownLibrary = markdownIt({
+  const markdown = markdownIt({
     html: true,
     breaks: true,
     linkify: true,
     typographer: true,
   })
-    .use(markdownItFootnote);
+    .use(footnotes)
+    .use(anchors, {
+      permalink: anchors.permalink.headerLink({
+        safariReaderFix: true
+      })
+    });
 
-  markdownLibrary.renderer.rules.footnote_caption = (tokens, idx) => {
+  markdown.renderer.rules.footnote_caption = (tokens, idx) => {
     let n = Number(tokens[idx].meta.id + 1).toString();
 
     if (tokens[idx].meta.subId > 0) {
@@ -72,47 +97,21 @@ module.exports = (eleventyConfig) => {
     return n;
   };
 
-  eleventyConfig.setLibrary("md", markdownLibrary);
+  config.setLibrary("md", markdown);
 
-  eleventyConfig.addPlugin(pluginDate);
-  eleventyConfig.addPlugin(pluginRss);
+  config.addPlugin(dates);
+  config.addPlugin(rss);
 
   // filters
-  eleventyConfig.addFilter("inspect", (object = {}) => inspect(object, { sorted: true }));
-  eleventyConfig.addFilter("MMM-YYYY", (date) => dayjs(date).format('MMM YYYY'));
-  eleventyConfig.addFilter("dateNow", (_) => dayjs().toISOString());
+  config.addFilter("inspect", (object = {}) => inspect(object, { sorted: true }));
+  config.addFilter("now", (_) => dayjs().toISOString());
 
-  eleventyConfig.addFilter("smartquotes", (post) => {
-    const hawaii = new RegExp(/(?<=<(h|l|p[^r]).*)Hawai'i/g);
-    const slang = new RegExp(/'(cause|em|til|twas)/g);
-    const apostrophes = new RegExp(/(?<=<(h|l|p[^r]).*)\b'\b/g);
-    const years = new RegExp(/(?<=\s)'(?=\d)/g);
-    const openDoubles = new RegExp(/(?<=<(h|l|p[^r]).*)(?<=\s|>)&quot;/g);
-    const closeDoubles = new RegExp(
-      /(?<=<(h|l|p[^r]).*“.*)&quot;(?=(\s|\p{P}|<))/gu
-    );
-    const openSingles = new RegExp(/(?<=<(h|l|p[^r]).*)(?<=\s|>)'/g);
-    const closeSingles = new RegExp(
-      /(?<=<(h|l|p[^r]).*‘.*)'(?=(\s|\p{P}|<))/gu
-    );
-
-    return post
-      .replace(hawaii, "Hawaiʻi")
-      .replace(slang, "’$1")
-      .replace(apostrophes, "’")
-      .replace(years, "’")
-      .replace(openDoubles, "“")
-      .replace(closeDoubles, "”")
-      .replace(openSingles, "‘")
-      .replace(closeSingles, "’");
-  });
-
-  eleventyConfig.addFilter("previews", async function (title) {
+  config.addFilter("previews", async function (title) {
     if (!title) {
       return;
     }
 
-    registerFont("./assets/fonts/inter.ttf", { family: "Inter" });
+    registerFont("./src/assets/fonts/inter.ttf", { family: "Inter" });
 
     const width = 1200;
     const height = 630;
@@ -132,7 +131,7 @@ module.exports = (eleventyConfig) => {
     context.fillRect(0, 0, width, height);
 
     if (!this.page.fileSlug) {
-      const flower = await loadImage("./assets/images/favicon.png");
+      const flower = await loadImage("./src/assets/images/favicon.png");
       const flowerSize = 48;
       const flowerPosition = {
         w: flowerSize,
@@ -227,7 +226,7 @@ module.exports = (eleventyConfig) => {
 
     header.setText(title);
 
-    const flower = await loadImage("./assets/images/favicon.png");
+    const flower = await loadImage("./src/assets/images/favicon.png");
     const flowerSize = 48;
     const flowerPosition = {
       w: flowerSize,
@@ -251,18 +250,49 @@ module.exports = (eleventyConfig) => {
   });
 
   // blogroll
-  eleventyConfig.addGlobalData(
-  "blogroll",
-  async () => await getBlogroll(),
+  config.addGlobalData(
+    "blogroll",
+    async () => {
+      if (process.env.MODE === 'development') {
+        return [];
+      }
+
+      return await getBlogroll()
+    },
+  )
+
+  // photostream
+  config.addGlobalData(
+    "photostream",
+    async () => {
+      if (process.env.MODE === 'development') {
+        return [];
+      }
+
+      const size = "c";
+      const key = process.env.FLICKR_API_KEY;
+      const { flickr } = createFlickr(key);
+      const response = await flickr("flickr.people.getPublicPhotos", {
+        user_id: process.env.FLICKR_USER_ID,
+        per_page: '500',
+      });
+
+      return response.photos.photo.map(
+        ({ id, title, secret, server }) => ({
+          title,
+          url: `https://live.staticflickr.com/${server}/${id}_${secret}_${size}.jpg`
+        })
+      );
+    },
   )
 
   // settings
-  eleventyConfig.setServerOptions({
+  config.setServerOptions({
     showAllHosts: true,
   });
 
   // pagefind
-  eleventyConfig.on('eleventy.after', () => {
-    execSync(`npx pagefind --source _site --glob \"**/*.html\"`, { encoding: 'utf-8' })
+  config.on('eleventy.after', () => {
+    execSync(`npx pagefind --site _site --glob \"**/*.html\"`, { encoding: 'utf-8' })
   })
 };

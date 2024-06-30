@@ -1,0 +1,102 @@
+---
+layout: layouts/default
+---
+<style>
+@media (orientation: landscape) {
+  body {
+    height: 100svh;
+
+    .photostream {
+      width: calc(100vw - 4rem);
+      margin-left: calc((100% - 100vw + 4rem) / 2);
+      overflow: hidden;
+      padding: 0;
+      display: grid;
+
+      .photostream-inner {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        overflow-y: hidden;
+        overflow-x: auto;
+        padding-bottom: 2rem;
+        position: relative;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        user-select: none;
+        -webkit-user-drag: none;
+
+        .pagination {
+          white-space: nowrap;
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      img {
+        scroll-snap-align: center;
+        min-height: 0;
+        object-fit: contain;
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  .photostream {
+    padding-bottom: calc(2lh + 3rem);
+
+    .photostream-inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--padding);
+      margin: var(--padding);
+      position: relative;
+
+      .pagination {
+        text-align: center;
+        position: absolute;
+        bottom: -3rem;
+
+        &.next-page {
+          right: 0;
+        }
+      }
+    }
+  }
+}
+</style>
+<main class="photostream">{{ content | safe }}</main>
+{% include "../sections/footer.njk" %}
+<script>
+const container = document.querySelector(".photostream-inner");
+let position = { top: 0, left: 0, x: 0, y: 0 };
+
+const mouseDownHandler = (e) => {
+  container.setAttribute('data-grabbing', true);
+
+  position = {
+    left: container.scrollLeft,
+    x: e.clientX,
+  };
+
+  document.addEventListener('mousemove', mouseMoveHandler);
+  document.addEventListener('mouseup', mouseUpHandler);
+};
+
+const mouseMoveHandler = (e) => {
+  const dx = e.clientX - position.x;
+  container.scrollLeft = position.left - dx;
+};
+
+const mouseUpHandler = () => {
+  container.removeAttribute('data-grabbing');
+
+  document.removeEventListener('mousemove', mouseMoveHandler);
+  document.removeEventListener('mouseup', mouseUpHandler);
+};
+
+container.addEventListener('mousedown', mouseDownHandler);
+</script>

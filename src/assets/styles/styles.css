@@ -1,0 +1,254 @@
+@import url("/assets/styles/typography.css");
+@import url("/assets/styles/header.css");
+@import url("/assets/styles/footer.css");
+@import url("/assets/styles/gallery.css");
+@import url("/assets/styles/prism.css");
+
+:root {
+  --cursor-default: url('data:image/svg+xml,<svg width="4.9440918mm" height="8.4666672mm" viewBox="0 0 4.9440918 8.4666672" version="1.1" id="svg1688" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs1685" /><g id="layer1"><path style="fill:none;stroke:%23000000;stroke-width:0.309761;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 0.24522777,0.19807071 C 0.39267884,-0.34739445 3.9378818,4.4246308 4.3639043,4.8506498 6.0370295,6.523775 2.2282948,4.2962525 2.2282948,4.6218313 c 0,0.9497905 1.3168189,2.7816562 0.9152592,3.5847739 C 2.7375704,9.018576 2.1733118,5.0357124 1.3893038,4.7743799 1.2242941,4.7193995 0.46429387,7.8962822 0.39314433,6.7890334 0.32199479,5.6817846 7.9603689e-4,1.1023048 0.24522777,0.19807071 Z" id="path1907" /></g></svg>'),
+    auto;
+  --cursor-pointer: url('data:image/svg+xml,<svg width="4.9440918mm" height="8.4666672mm" viewBox="0 0 4.9440918 8.4666672" version="1.1" id="svg1688" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs1685" /><g id="layer1"><path style="fill:none;stroke:%23000000;stroke-width:0.309761;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 0.24522777,0.19807071 C 0.39267884,-0.34739445 3.9378818,4.4246308 4.3639043,4.8506498 6.0370295,6.523775 2.2282948,4.2962525 2.2282948,4.6218313 c 0,0.9497905 1.3168189,2.7816562 0.9152592,3.5847739 C 2.7375704,9.018576 2.1733118,5.0357124 1.3893038,4.7743799 1.2242941,4.7193995 0.46429387,7.8962822 0.39314433,6.7890334 0.32199479,5.6817846 7.9603689e-4,1.1023048 0.24522777,0.19807071 Z" id="path1907" /><path style="fill:none;stroke:%23ffcc00;stroke-width:0.309827;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 2.6711888,1.5888968 C 3.1452928,1.3355027 3.1691372,1.0333338 3.1470903,0.62174224 3.3875149,0.98730271 3.6785519,1.202892 4.1756516,1.1129953 3.5806524,1.3374522 3.7339745,1.7064873 3.6613711,2.1338808 3.4110239,1.5996914 3.1981211,1.4488836 2.6711888,1.5888968 Z" id="path7371" /><path style="fill:none;stroke:%23ffcc00;stroke-width:0.309827;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 3.4797122,6.1516247 C 3.985973,6.3324094 4.0520718,6.4346589 4.342042,6.1417238 4.2329185,6.5654342 4.2417255,6.6435989 4.6423695,6.9512901 4.0762895,6.6615344 4.1448717,6.7516983 3.7795906,6.9851638 4.0069167,6.4407789 3.9375167,6.4477266 3.4797122,6.1516247 Z" id="path7371-0" /><path style="fill:none;stroke:%23ffcc00;stroke-width:0.309827;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="M 0.99338146,7.3245157 C 1.5231983,7.2552466 1.3152186,7.245595 1.4240742,6.8480473 1.5369707,7.2707682 1.3638207,7.283779 1.853053,7.4257665 1.2176321,7.4511659 1.5455192,7.4543679 1.3418589,7.8370675 1.272716,7.2511909 1.4887332,7.6183168 0.99338146,7.3245157 Z" id="path7371-1" /></g></svg>'),
+    pointer;
+  --underline: url('data:image/svg+xml,<svg width="120" height="3" viewBox="0 0 31.749998 0.79375" version="1.1" id="svg13255" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs13252" /><g id="layer1" transform="translate(0.01322916,0.01322916)"><path style="fill:none;stroke:%23000000;stroke-width:0.15;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers stroke fill" d="m -0.01322916,0.41671876 c 0,0 3.01152096,-0.26553119 6.61656566,-0.27632989 C 10.208381,0.12959017 17.410774,0.65563365 21.60178,0.67678503 25.792786,0.69793641 31.736771,0.41671876 31.736771,0.41671876" id="path23703" /></g></svg>');
+  --font-body: "PT Root", "ui-rounded", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  --color-background: #fff;
+  --color-body: #000000;
+  --font-monospace: "Mono", ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  --font-size: 1em;
+  --line-height: 1.85;
+  --padding: 16px;
+  --selection-background: #f3eab9;
+  --prism-background: transparent;
+  --prism-font-family: var(--font-monospace);
+  --prism-block-font-size: 1em;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus-visible {
+    outline-color: currentColor !important;
+    border-radius: 2px !important;
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border: 2px solid white;
+    background-color: transparent;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #d9d9d9;
+    border: 2px solid white;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #858585;
+  }
+
+  &:focus:not(.focus-visible) {
+    outline: none;
+  }
+}
+
+::selection,
+mark {
+  background: var(--selection-background);
+  color: currentColor;
+}
+
+html {
+  scrollbar-gutter: stable;
+  -webkit-font-smoothing: antialiased;
+  color: var(--color-body);
+  cursor: var(--cursor-default);
+  font-family: var(--font-body);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  body {
+    background-color: var(--color-background);
+    font-weight: 480;
+    width: min(100%, 768px);
+    margin: 0 auto;
+    min-height: 100dvh;
+    text-underline-offset: 0.15lh;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      color: currentColor;
+      cursor: var(--cursor-pointer);
+      text-decoration: 1px underline;
+      transition: font-weight 0.2s;
+
+      &:hover,
+      &[data-active] {
+        font-weight: 700;
+        transition: font-weight 0.2s;
+      }
+    }
+
+    .i {
+      background-repeat: no-repeat;
+      background-size: contain;
+      display: inline-block;
+      height: 1lh;
+      vertical-align: bottom;
+      width: 1lh;
+    }
+
+    figcaption {
+      text-align: center;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 700;
+    }
+
+    em,
+    i {
+      font-family: "Playfair Display";
+      line-height: 1;
+    }
+
+    hr {
+      background-image: var(--underline);
+      background-position: center;
+      background-repeat: repeat-x;
+      border: hidden;
+      height: 3px;
+      padding: 8px;
+    }
+
+    main {
+      flex: 1;
+      padding-bottom: 2lh;
+
+      article {
+        padding: 0 var(--padding);
+
+        a.header-anchor, .footnote-ref a, a.footnote-backref {
+          text-decoration: none;
+        }
+
+        hgroup {
+          margin: var(--padding) 0;
+
+          h2 {
+            line-height: 1.2;
+          }
+
+          &>* {
+            margin: 0;
+          }
+
+          a {
+            text-decoration: none;
+          }
+        }
+
+        @media only screen and (min-width: calc(768px + 40px)) {
+
+          ul,
+          ol {
+            padding: 0;
+          }
+        }
+
+        ul,
+        ol {
+          margin: 0;
+          list-style-type: decimal;
+
+          li {
+            margin-bottom: 0.5em;
+            margin-top: 0.5em;
+            padding-left: 0.25em;
+            margin-left: -0.25em;
+
+            &::marker {
+              font-style: italic;
+              font-family: "Playfair Display";
+            }
+          }
+        }
+
+        img,
+        video {
+          display: block;
+          margin: auto;
+          max-width: 100%;
+        }
+
+        p {
+          code {
+            font-size: 1em;
+          }
+        }
+
+        pre,
+        code {
+          font-family: var(--font-monospace);
+          font-size: 1em;
+          line-height: 1.15;
+        }
+      }
+    }
+  }
+}
+
+ul.cards, ol.pagefind-ui__results {
+  list-style-type: '';
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+
+    time {
+      font-size: smaller;
+    }
+
+    h4 {
+      margin: 0;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    &:not(:last-of-type):after {
+      content: '';
+      display: block;
+      width: 75%;
+      height: 1px;
+      background: #d9d9d9;
+      margin: 2rem auto;
+    }
+  }
+
+  &:not(:last-of-type):after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #d9d9d9;
+    margin: 3rem auto;
+  }
+}

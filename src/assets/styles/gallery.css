@@ -1,0 +1,25 @@
+.gallery {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(2, auto);
+  gap: 1rem;
+  width: max(min(1280px, 70vw), 100%);
+  margin-left: calc((100% - max(min(1280px, 70vw), 100%)) / 2);
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+
+  img {
+    min-width: 0;
+    display: block;
+    margin: 0;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  .gallery {
+    display: grid;
+    grid-template-columns: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}

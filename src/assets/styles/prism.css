@@ -1,0 +1,43 @@
+.token.keyword {
+	font-style: italic;
+}
+
+.token.comment {
+  color: #858585;
+}
+
+pre {
+  --counter-width: 3ch;
+  --counter-padding: 2ch;
+  overflow-x: auto;
+
+  code {
+    overflow-x: auto;
+    counter-reset: line;
+    line-height: 1;
+
+    .highlight-line {
+      margin: 0;
+
+      &::before {
+        counter-increment: line;
+        content: counter(line);
+        user-select: none;
+        font-size: 0.7em;
+        color: grey;
+        text-align: right;
+        display: inline-block;
+        padding-right: var(--counter-padding);
+        width: var(--counter-width);
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: calc(768px + 8ch)) {
+  pre {
+    width: calc(100% + 2 * (var(--counter-width)));
+    margin-left: calc(-1 * var(--counter-width) - 0.5ch);
+  }
+}
