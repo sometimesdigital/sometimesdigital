@@ -1,0 +1,9 @@
+---
+layout: layouts/default
+---
+<main>
+  <article {% if not excludeFromPagefind %}data-pagefind-body{% endif %}>
+    {{ content | safe }}
+  </article>
+</main>
+{% include "../sections/footer.njk" %}
