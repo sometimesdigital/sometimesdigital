@@ -286,6 +286,12 @@ module.exports = (config) => {
     },
   )
 
+  // shortcodes
+  config.addShortcode("link", function (url, label) {
+    const isActive = this.page.url === url;
+    return `<a ${isActive ? 'data-active' : ''} href="${url}">${label}</a>`;
+  });
+
   // settings
   config.setServerOptions({
     showAllHosts: true,
