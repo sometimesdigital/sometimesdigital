@@ -1,5 +1,6 @@
 ---
 title: Photostream
+description: Latest photos
 layout: layouts/photostream.njk
 eleventyExcludeFromCollections: true
 pagination:

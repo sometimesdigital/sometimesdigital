@@ -1,5 +1,5 @@
 ---
-title: About Weeknotes
+title: About weeknotes
 description: Writing about writing
 date: 2024-04-02T21:05:00+02:00
 tags: indieweb

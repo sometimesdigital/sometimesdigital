@@ -1,5 +1,5 @@
 ---
-title: Highlighting the Active Navigation Link in Eleventy Using Templates, Shortcodes, and the Page Object
+title: Highlighting the active navigation link in Eleventy using templates, shortcodes, and the page object
 description: Using templates, shortcodes, and the Eleventy supplied data for highlighting the current page in navigation
 date: 2024-07-06T18:00:00+01:00
 tags: eleventy
@@ -14,7 +14,7 @@ In `.eleventy.js`, using [shortcodes](https://www.11ty.dev/docs/languages/nunjuc
 ```js
 eleventyConfig.addShortcode("link", function (url, label) {
   const isActive = this.page.url === url;
-  return `<a ${isActive ? 'data-active' : ''} href="${url}">${label}</a>`;
+  return `<a ${isActive ? 'aria-current="page"' : ''} href="${url}">${label}</a>`;
 });
 ```
 
@@ -27,11 +27,20 @@ In `_includes/sections/navigation.njk`:
   </ul>
 </nav>{% endraw %}
 ```
-Mind the trailing slashes that may be load-bearing depending on other configuration.
+Mind the trailing slashes that may be load-bearing depending on other configuration. That actually became a problem for me when I switched servers, so I added this hack for now:
+
+```js
+eleventyConfig.addShortcode("link", function (url, label) {
+  const isActive = this.page.url === url;
+  return `<a ${isActive ? 'aria-current="page"' : ''} href="${url.at(-1) === '/' ? url.slice(0, -1) : url}">${label}</a>`;
+});
+```
 
 And in the CSS stylesheet:
 ```css
-.links a[data-active] {
+.links a[aria-current="page"] {
   font-weight: 700;
 }
 ```
+
+In the first version of this post I used a custom `data-active` attribute, but I got an e-mail from cypressSap in which they pointed my attention to the [aria-current](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current) attribute, so I've updated the post to use that instead.

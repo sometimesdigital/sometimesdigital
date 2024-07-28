@@ -289,7 +289,7 @@ module.exports = (config) => {
   // shortcodes
   config.addShortcode("link", function (url, label) {
     const isActive = this.page.url === url;
-    return `<a ${isActive ? 'data-active' : ''} href="${url}">${label}</a>`;
+    return `<a ${isActive ? 'aria-current="page"' : ''} href="${url.at(-1) === '/' ? url.slice(0, -1) : url}">${label}</a>`;
   });
 
   // settings
@@ -300,5 +300,5 @@ module.exports = (config) => {
   // pagefind
   config.on('eleventy.after', () => {
     execSync(`npx pagefind --site _site --glob \"**/*.html\"`, { encoding: 'utf-8' })
-  })
+  });
 };

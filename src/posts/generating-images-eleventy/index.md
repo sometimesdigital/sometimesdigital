@@ -1,5 +1,5 @@
 ---
-title: Generating Open Graph Images in Eleventy
+title: Generating Open Graph images in Eleventy
 description: Autogenerating image previews with Eleventy filter functions and node-canvas
 date: 2023-12-17T13:17:00+01:00
 tags: eleventy

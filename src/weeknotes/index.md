@@ -1,5 +1,6 @@
 ---
 title: Weeknotes
+description: Notes from Last Week
 layout: layouts/weeknotes.njk
 eleventyExcludeFromCollections: true
 ---
