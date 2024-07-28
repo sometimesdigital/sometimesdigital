@@ -1,5 +1,5 @@
 ---
-title: Adding a Photo Stream to an Eleventy site
+title: Adding a photo stream to an Eleventy site
 description: Fetching all my public photos from Flickr & putting them on my page
 date: 2024-06-30T19:00:00+02:00
 tags: eleventy

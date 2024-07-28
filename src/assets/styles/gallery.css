@@ -8,6 +8,10 @@
   margin-top: 3rem;
   margin-bottom: 3rem;
 
+  .full-width {
+    grid-column: span 2;
+  }
+
   img {
     min-width: 0;
     display: block;
@@ -21,5 +25,9 @@
     grid-template-columns: auto;
     margin-top: 1rem;
     margin-bottom: 1rem;
+
+    .full-width {
+      grid-column: span 1;
+    }
   }
 }

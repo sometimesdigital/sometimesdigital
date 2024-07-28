@@ -1,5 +1,6 @@
 ---
 title: Posts
+description: Writing things down so that I won’t forget them later
 layout: layouts/article
 eleventyExcludeFromCollections: true
 ---
