@@ -10,6 +10,7 @@ pre {
   --counter-width: 3ch;
   --counter-padding: 2ch;
   overflow-x: auto;
+  overflow-y: hidden;
 
   code {
     overflow-x: auto;
